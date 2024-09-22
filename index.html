@@ -248,6 +248,142 @@
             border-radius: 10px; /* Adds rounded corners to the iframe */
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Adds a shadow for better visual separation */
         }
+        
+        /* Basic styling for container */
+        .leaderboard-container {
+            width: 50%;
+            margin: auto;
+        }
+
+        /* Style for tabs */
+        .tabs {
+            overflow: hidden;
+            background-color: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .tablinks {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-size: 17px;
+        }
+
+        .tablinks:hover {
+            background-color: #ddd;
+        }
+
+        .tablinks.active {
+            background-color: #ccc;
+        }
+
+        /* Hide all tab contents by default */
+        .tabcontent {
+            display: none;
+            padding: 20px;
+            border-top: none;
+        }
+
+        .tabcontent h2 {
+            margin-bottom: 20px;
+        }
+
+        .tabcontent ol {
+            padding-left: 20px;
+        }
+        
+/* Leaderboard Tabs */
+.leaderboard-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tab-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.tab-button:hover {
+    background-color: #0056b3;
+}
+
+.tab-button:focus {
+    outline: none;
+}
+
+/* Leaderboard Container */
+.leaderboard-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+/* Leaderboard Header */
+.leaderboard-header {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Individual Leaderboard Row */
+.leaderboard-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 10px 20px;
+    margin: 10px 0;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Left side (Place & Username) */
+.leaderboard-info {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/* Place number */
+.leaderboard-place {
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+/* Username */
+.leaderboard-user {
+    font-size: 18px;
+}
+
+/* Score on the right */
+.leaderboard-score {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Hover effect for rows */
+.leaderboard-row:hover {
+    background-color: #f0f0f0;
+}
+
     </style>
 </head>
     <body>
@@ -280,7 +416,7 @@
             <div class="tab" data-section="movies-section">Movies</div>
             <div class="tab" data-section="tv-section">TV Shows</div>
             <div class="tab" data-section="internet-search-section">Internet Search</div>
-            <div class="tab" data-section="settings">Leaderboards</div>
+            <div class="tab" data-section="leaderboards">Leaderboards</div>
         </div>
 
         <!-- Game Section -->
@@ -306,6 +442,20 @@
             <h3>Search the Internet</h3>
             <div class="iframe-container">
                 <iframe class="frame" src="https://paid.ezmath.site/search" width="100%" height="600px" style="border: none;"></iframe>
+            </div>
+        </div>
+        
+        <div class="library-section" id="leaderboards">
+            <div class="leaderboard-tabs">
+                <button class="tab-button active" onclick="loadLeaderboard('game1', this)">Game 1</button>
+                <button class="tab-button" onclick="loadLeaderboard('game2', this)">Game 2</button>
+                <button class="tab-button" onclick="loadLeaderboard('game3', this)">Game 3</button>
+            </div>
+
+            <div class="leaderboard-container">
+                <div class="leaderboard-header">Leaderboard</div>
+                <!-- The leaderboard rows will be dynamically inserted here -->
+                <div id="leaderboard"></div>
             </div>
         </div>
     </div>
@@ -498,6 +648,86 @@
 
     // Fetch the games when the page loads
     fetchGames();
+        
+    function openLeaderboard(evt, leaderboardName) {
+        var i, tabcontent, tablinks;
+
+        // Hide all tab contents
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+
+        // Remove active class from all tablinks
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        // Show the selected leaderboard
+        document.getElementById(leaderboardName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    // Show the first leaderboard by default when page loads
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementsByClassName("tablinks")[0].click();
+    });
+        
+let leaderboardData = {};
+
+// Fetch the leaderboard data once when the page loads
+fetch('leaderboard.json')
+    .then(response => response.json())
+    .then(data => {
+        leaderboardData = data.leaderboards; // Store the leaderboard data for use in tabs
+        loadLeaderboard('game1', document.querySelector('.tab-button')); // Load the first leaderboard by default
+    })
+    .catch(error => console.error('Error loading leaderboard:', error));
+
+// Function to load the selected leaderboard based on the game type
+function loadLeaderboard(game, tabButton) {
+    const leaderboardContainer = document.getElementById('leaderboard');
+    leaderboardContainer.innerHTML = ''; // Clear existing leaderboard content
+
+    // Remove the 'active' class from all tab buttons
+    const allTabButtons = document.querySelectorAll('.tab-button');
+    allTabButtons.forEach(button => button.classList.remove('active'));
+
+    // Add the 'active' class to the clicked tab button
+    tabButton.classList.add('active');
+
+    const gameLeaderboard = leaderboardData[game];
+
+    // Loop through the JSON data and create leaderboard rows
+    gameLeaderboard.forEach(entry => {
+        const row = document.createElement('div');
+        row.classList.add('leaderboard-row');
+
+        const infoDiv = document.createElement('div');
+        infoDiv.classList.add('leaderboard-info');
+
+        const placeDiv = document.createElement('div');
+        placeDiv.classList.add('leaderboard-place');
+        placeDiv.textContent = entry.place;
+
+        const userDiv = document.createElement('div');
+        userDiv.classList.add('leaderboard-user');
+        userDiv.textContent = entry.username;
+
+        infoDiv.appendChild(placeDiv);
+        infoDiv.appendChild(userDiv);
+
+        const scoreDiv = document.createElement('div');
+        scoreDiv.classList.add('leaderboard-score');
+        scoreDiv.textContent = entry.score;
+
+        row.appendChild(infoDiv);
+        row.appendChild(scoreDiv);
+
+        leaderboardContainer.appendChild(row);
+    });
+}
     </script>
 </body>
 </html>
