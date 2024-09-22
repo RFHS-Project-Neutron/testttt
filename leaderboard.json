@@ -1,0 +1,19 @@
+{
+  "leaderboards": {
+    "game1": [
+      { "place": 1, "username": "User1", "score": 1500 },
+      { "place": 2, "username": "User2", "score": 1400 },
+      { "place": 3, "username": "User3", "score": 1300 }
+    ],
+    "game2": [
+      { "place": 1, "username": "UserA", "score": 2500 },
+      { "place": 2, "username": "UserB", "score": 2400 },
+      { "place": 3, "username": "UserC", "score": 2300 }
+    ],
+    "game3": [
+      { "place": 1, "username": "PlayerX", "score": 3500 },
+      { "place": 2, "username": "PlayerY", "score": 3400 },
+      { "place": 3, "username": "PlayerZ", "score": 3300 }
+    ]
+  }
+}
