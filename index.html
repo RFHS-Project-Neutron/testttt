@@ -1,33 +1,503 @@
 <!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <meta name="keywords" content="front-end web developer, unblocked, games, google sites, unblocked games mom, ublocked, code, coding, programmer, development, javascript, jquery, bootstrap, sass, less, git" />
-    <meta property="og:title" content="Welcome to 3kh0 lite, a lightweight, fast, and clean game site." />
-    <meta property="og:site_name" content="3kh0.github.io" />
-    <meta property="og:description" content="Welcome to 3kh0 lite, a lightweight, fast, and clean game site." />
-    <meta name="description" content="Welcome to 3kh0 lite, a lightweight, fast, and clean game site." />
-    <meta name="author" content="3kh0" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>3kh0 lite</title>
-  </head>
-  <body style="background-color: #121212; color: #ffffff; font-family: sans-serif; margin: 0; padding: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
-    <h1 style="font-size: 3em; text-align: center;">
-      3kh0 lite
-    </h1>
-    <span id="subtitle" style="font-size: 1.5em;">...</span>
-    <p style="text-align: center; max-width: 600px; margin: 20px auto;">
-      Welcome to 3kh0 lite, a lightweight, lightning fast, and simple game site.<br />
-      <a href="/projects.html" style="text-decoration: none;"><button style="cursor: pointer; background-color: #22c55e; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; border-radius: 20px; margin-top: 20px;">Start playing!</button></a><br />
-      <br />
-      <a href="/misc.html" style="text-decoration: none;"><button style="cursor: pointer; background-color: #b625cc; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; border-radius: 20px; margin-top: 5px;">Tools and settings</button></a>
-    </p>
-    <p style="text-align: center; max-width: 600px; margin: 20px auto;">
-        &copy; 3kh0, 2024. All rights reserved. You are welcome to use and/or duplicate material from the <a href="https://github.com/3kh0/3kh0-lite" style="color: #22c55e;">GitHub repository</a> with proper credit to 3kh0.<br /><br />
-        Contact Echo at <a href="mailto:echo-the-coder@tuta.io" style="color: #22c55e;">echo-the-coder@tuta.io</a>.
-    </p>
-    <script src="/js/main.js"></script>
-    <script src="/js/subtitle.js"></script>
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neutron Plus</title>
+    <script type="text/javascript" src="https://www.authpro.com/auth/projectneutron/?action=pp"></script>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1c1c1c;
+            color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #282828;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            color: #ff6a3d;
+            font-size: 2.5rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Welcome Area */
+        .welcome {
+            background: linear-gradient(135deg, #282828 30%, #333333 100%);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.4);
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative; /* Make room for buttons */
+        }
+
+        .welcome h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #ff6a3d;
+        }
+
+        .welcome p {
+            color: #c0c0c0;
+            font-size: 1.2rem;
+        }
+
+        /* Edit Profile and Logout Buttons */
+        .welcome-buttons {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .welcome-buttons button {
+            background-color: #ff6a3d;
+            border: none;
+            padding: 10px 15px;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+            font-size: 0.9rem;
+        }
+
+        .welcome-buttons button:hover {
+            background-color: #ff5733;
+        }
+
+        /* Search Bar */
+        .search-bar {
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 30px;
+            display: flex;
+            margin-left: 50%;
+            justify-content: center;
+            transform: translateX(-50%);
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            background-color: #333;
+            color: #fff;
+            outline: none;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
+            transition: 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            box-shadow: 0px 4px 12px rgba(255, 106, 61, 0.7);
+        }
+
+        /* Tab Navigation */
+        .tab-container {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #333;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .tab:hover, .tab.active {
+            background-color: #ff6a3d;
+            color: white;
+        }
+
+        /* Section Headers */
+        .library-section {
+            display: none;
+        }
+
+        .library-section.active {
+            display: block;
+        }
+
+        .library-section h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #ff6a3d;
+        }
+
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-gap: 20px;
+            width: 100%;
+        }
+
+        /* Grid Layout */
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 150px); /* Each item will be 150px wide */
+            grid-gap: 20px; /* Space between items */
+        }
+
+        /* Movies/TV Shows Grid - Rectangular Posters */
+        .movies-tv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 150px); /* Each item will be 150px wide */
+            grid-gap: 20px; /* Space between items */
+        }
+        
+        .item {
+            padding: 10px;
+            background-color: #333;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* Align items to the top */
+            align-items: center; /* Center align horizontally */
+            text-align: center; /* Center text */
+            transition: 0.3s ease;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .item img {
+            max-width: 100%; /* Ensure image scales well */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 10px;
+            margin-bottom: 10px; /* Space between image and text */
+        }
+
+        .item span {
+            margin-top: 10px; /* Space between text and image */
+            font-size: 1rem; /* Font size for text */
+            line-height: 1.2; /* Line height for better readability */
+            color: #c0c0c0; /* Text color */
+        }
+
+        .item:hover {
+            background-color: #ff6a3d;
+            color: white;
+        }
+
+        /* Internet Search Section */
+        .internet-search {
+            text-align: center;
+        }
+
+        .internet-search input[type="text"] {
+            width: 100%;
+            max-width: 600px;
+            padding: 15px;
+            border-radius: 50px;
+            border: none;
+            font-size: 1rem;
+            background-color: #333;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .internet-search button {
+            padding: 10px 20px;
+            background-color: #ff6a3d;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #282828;
+            text-align: center;
+            color: #c0c0c0;
+            font-size: 0.9rem;
+        }
+        
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .iframe-container {
+            margin-top: 20px; /* Adds space between the search bar and iframe */
+            display: flex;
+            justify-content: center; /* Centers the iframe horizontally */
+        }
+
+        .iframe-container iframe {
+            border-radius: 10px; /* Adds rounded corners to the iframe */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Adds a shadow for better visual separation */
+        }
+    </style>
+</head>
+    <body>
+
+    <header>
+        <h1>Neutron Plus</h1>
+    </header>
+
+    <div class="container">
+        <!-- Welcome area for members -->
+        <div class="welcome">
+            <h2 id="ap_welcome"></h2>
+            <p>Example</p>
+
+            <!-- Buttons for logout and profile editing -->
+            <div class="welcome-buttons">
+                <button onclick="editProfile()">Edit Profile</button>
+                <button><a href="https://www.authpro.com/auth/projectneutron/?action=logout">Logout</a></button>
+            </div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search for a game, TV show, or movie...">
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="tab-container">
+            <div class="tab active" data-section="games-section">Games</div>
+            <div class="tab" data-section="movies-section">Movies</div>
+            <div class="tab" data-section="tv-section">TV Shows</div>
+            <div class="tab" data-section="internet-search-section">Internet Search</div>
+            <div class="tab" data-section="settings">Leaderboards</div>
+        </div>
+
+        <!-- Game Section -->
+        <div class="library-section active" id="games-section">
+            <h3>Games Library</h3>
+            <div class="games-grid"></div>
+        </div>
+
+        <!-- Movies Section -->
+        <div class="library-section" id="movies-section">
+            <h3>Movies Library</h3>
+            <div class="movies-tv-grid"></div>
+        </div>
+
+        <!-- TV Shows Section -->
+        <div class="library-section" id="tv-section">
+            <h3>TV Shows Library</h3>
+            <div class="movies-tv-grid"></div>
+        </div>
+
+        <!-- Internet Search Section -->
+        <div class="library-section" id="internet-search-section">
+            <h3>Search the Internet</h3>
+            <div class="iframe-container">
+                <iframe class="frame" src="https://paid.ezmath.site/search" width="100%" height="600px" style="border: none;"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Project Neutron. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Function to switch between sections
+        const tabs = document.querySelectorAll('.tab');
+        const sections = document.querySelectorAll('.library-section');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                sections.forEach(section => section.classList.remove('active'));
+                const activeSection = document.getElementById(tab.getAttribute('data-section'));
+                activeSection.classList.add('active');
+
+                // Fetch movies or TV shows when respective tab is clicked
+                if (tab.getAttribute('data-section') === 'movies-section') {
+                    fetchMovies();
+                } else if (tab.getAttribute('data-section') === 'tv-section') {
+                    fetchTVShows();
+                }
+            });
+        });
+
+    const apiKey = '9b80b3bf5231a6f349ac797f1a6135e6';
+    const baseUrl = 'https://api.themoviedb.org/3';
+    const imageBaseUrl = 'https://image.tmdb.org/t/p/w500';
+
+    let moviePageSet = 1;  // Tracks the current set of movie pages being loaded (1-5, 6-10, etc.)
+    let tvPageSet = 1;     // Tracks the current set of TV show pages
+
+    const moviesGrid = document.querySelector('#movies-section .movies-tv-grid');
+    const tvGrid = document.querySelector('#tv-section .movies-tv-grid');
+
+    // Function to fetch multiple pages of movies (pages 1-5, 6-10, etc.)
+    async function fetchMovies(pageSet) {
+        const promises = [];
+        for (let page = (pageSet - 1) * 5 + 1; page <= pageSet * 5; page++) {
+            promises.push(fetch(`${baseUrl}/movie/popular?api_key=${apiKey}&language=en-US&page=${page}&certification_country=US&certification.lte=PG-13`));
+        }
+        const responses = await Promise.all(promises);
+        const movies = [];
+        for (let response of responses) {
+            const data = await response.json();
+            movies.push(...data.results);
+        }
+        displayMovies(movies);
+    }
+
+    // Function to fetch multiple pages of TV shows (pages 1-5, 6-10, etc.)
+    async function fetchTVShows(pageSet) {
+        const promises = [];
+        for (let page = (pageSet - 1) * 5 + 1; page <= pageSet * 5; page++) {
+            promises.push(fetch(`${baseUrl}/tv/popular?api_key=${apiKey}&language=en-US&page=${page}`));
+        }
+        const responses = await Promise.all(promises);
+        const tvShows = [];
+        for (let response of responses) {
+            const data = await response.json();
+            tvShows.push(...data.results);
+        }
+        displayTVShows(tvShows);
+    }
+
+    // Function to display movies
+    function displayMovies(movies) {
+        movies.forEach(movie => {
+            const movieItem = document.createElement('div');
+            movieItem.classList.add('item');
+            movieItem.innerHTML = `
+                <img src="${imageBaseUrl}${movie.poster_path}" alt="${movie.title}">
+                <span>${movie.title}</span>
+            `;
+
+            // Add click event to open new tab with movie details
+            movieItem.addEventListener('click', () => {
+                window.open(`/movie?id=${movie.id}`, '_blank');
+            });
+
+            moviesGrid.appendChild(movieItem);
+        });
+    }
+
+    // Function to display TV shows
+    function displayTVShows(tvShows) {
+        tvShows.forEach(show => {
+            const tvItem = document.createElement('div');
+            tvItem.classList.add('item');
+            tvItem.innerHTML = `
+                <img src="${imageBaseUrl}${show.poster_path}" alt="${show.name}">
+                <span>${show.name}</span>
+            `;
+
+            // Add click event to open new tab with TV show details
+            tvItem.addEventListener('click', () => {
+                window.open(`/tv?id=${show.id}`, '_blank');
+            });
+
+            tvGrid.appendChild(tvItem);
+        });
+    }
+
+    // Function to load more movies or TV shows (called on button click or scroll event)
+    function loadMoreMovies() {
+        moviePageSet++;
+        fetchMovies(moviePageSet);
+    }
+
+    function loadMoreTVShows() {
+        tvPageSet++;
+        fetchTVShows(tvPageSet);
+    }
+
+    // Call the first set of movies and TV shows
+    fetchMovies(moviePageSet);
+    fetchTVShows(tvPageSet);
+
+    // Add a "Load More" button
+    const loadMoreMoviesButton = document.createElement('button');
+    loadMoreMoviesButton.innerText = 'Load More Movies';
+    loadMoreMoviesButton.style.margin = '20px auto';
+    loadMoreMoviesButton.style.display = 'block';
+    loadMoreMoviesButton.onclick = loadMoreMovies;
+    moviesGrid.parentElement.appendChild(loadMoreMoviesButton);
+
+    const loadMoreTVButton = document.createElement('button');
+    loadMoreTVButton.innerText = 'Load More TV Shows';
+    loadMoreTVButton.style.margin = '20px auto';
+    loadMoreTVButton.style.display = 'block';
+    loadMoreTVButton.onclick = loadMoreTVShows;
+    tvGrid.parentElement.appendChild(loadMoreTVButton);
+
+    // Optionally: Add infinite scroll logic (detects when the user scrolls to the bottom of the page)
+    window.addEventListener('scroll', () => {
+        if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+            const activeTab = document.querySelector('.tab.active').getAttribute('data-section');
+            if (activeTab === 'movies-section') {
+                loadMoreMovies();
+            } else if (activeTab === 'tv-section') {
+                loadMoreTVShows();
+            }
+        }
+    });
+
+        // Assuming 'login' is defined by AuthPro and contains the user's name
+        document.getElementById("ap_welcome").innerHTML = "Welcome, " + login;
+        
+    // Fetch games from config/games.json and display them
+    async function fetchGames() {
+        try {
+            const response = await fetch('https://premium.ezmath.site/config/games.json'); // Fetch the JSON file
+            const games = await response.json(); // Parse the JSON file
+
+            // Call the function to display the games in the grid
+            displayGames(games);
+        } catch (error) {
+            console.error("Error fetching games:", error);
+        }
+    }
+
+    // Function to display the games in the grid
+    function displayGames(games) {
+        const gamesGrid = document.querySelector('.games-grid');
+
+        games.forEach(game => {
+            const gameItem = document.createElement('div');
+            gameItem.classList.add('item');
+
+            gameItem.innerHTML = `
+                <img src="${game.image}" alt="${game.title}">
+                <span>${game.title}</span>
+            `;
+
+            // Add click event to open the game in a new tab
+            gameItem.addEventListener('click', () => {
+                window.open(game.url, '_blank');
+            });
+
+            gamesGrid.appendChild(gameItem); // Append each game to the grid
+        });
+    }
+
+    // Fetch the games when the page loads
+    fetchGames();
+    </script>
+</body>
 </html>
