@@ -1,11 +1,69 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>404 Error | 3kh0</title>
-  </head>
-  <body>
-    <h1>404 Error</h1>
-    <p>Page not found. Whomp whomp :(</p>
-    <a href="/">Go to Homepage</a>
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Not Found - Neutron Plus</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1c1c1c;
+            color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* Full viewport height */
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .error-code {
+            font-size: 6rem;
+            color: #ff6a3d;
+            margin-bottom: 20px;
+        }
+
+        .error-message {
+            font-size: 1.5rem;
+            color: #c0c0c0;
+            margin-bottom: 30px;
+        }
+
+        .back-button {
+            background-color: #ff6a3d;
+            border: none;
+            padding: 15px 30px;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #ff5733;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="error-code">404</div>
+    <div class="error-message">Oops! The page you are looking for doesn't exist.</div>
+    <a href="index.html" class="back-button">Go Back to Home</a>
+</div>
+
+</body>
 </html>
