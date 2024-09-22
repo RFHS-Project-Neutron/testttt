@@ -715,6 +715,11 @@
     "title": "Superhot"
   },
   {
+    "link": "projects/superoliveworld/index.html",
+    "imgSrc": "projects/superoliveworld/meta/apple-touch-icon.png",
+    "title": "Super Oliver World"
+  },
+  {
     "link": "projects/swerve/index.html",
     "imgSrc": "projects/swerve/img/favicon.jpg",
     "title": "Swerve"
@@ -750,6 +755,11 @@
     "title": "The Final Earth"
   },
   {
+    "link": "projects/thefinalearth2/index.html",
+    "imgSrc": "projects/thefinalearth2/meta/apple-touch-icon.png",
+    "title": "The Final Earth 2"
+  },
+  {
     "link": "projects/theheist/index.html",
     "imgSrc": "projects/theheist/theheist.jpg",
     "title": "The Heist"
@@ -763,6 +773,16 @@
     "link": "projects/thisistheonlylevel/index.html",
     "imgSrc": "projects/thisistheonlylevel/thisistheonlylevel.png",
     "title": "This Is The Only Level"
+  },
+  {
+    "link": "projects/tinyfishing/index.html",
+    "imgSrc": "projects/tinyfishing/meta/apple-touch-icon.png",
+    "title": "Tiny Fishing"
+  },
+  {
+    "link": "projects/tombofthemask/index.html",
+    "imgSrc": "projects/tombofthemask/meta/apple-touch-icon.png",
+    "title": "Tomb of the Mask"
   },
   {
     "link": "projects/tosstheturtle/index.html",
@@ -785,6 +805,16 @@
     "title": "TV Static"
   },
   {
+    "link": "projects/unfairmario/index.html",
+    "imgSrc": "projects/unfairmario/meta/apple-touch-icon.png",
+    "title": "Unfair Mario"
+  },
+  {
+    "link": "projects/vex1/index.html",
+    "imgSrc": "projects/vex1/meta/apple-touch-icon.png",
+    "title": "Vex 1"
+  },
+  {
     "link": "projects/vex3/index.html",
     "imgSrc": "projects/vex3/vex3.png",
     "title": "Vex 3"
@@ -804,6 +834,11 @@
     "imgSrc": "projects/vex6/assets/icon.jpeg",
     "title": "Vex 6"
   },
+  {
+    "link": "projects/volleyrandom/index.html",
+    "imgSrc": "projects/volleyrandom/meta/apple-touch-icon.png",
+    "title": "Volley Random"
+  }
   {
     "link": "projects/webretro-local/index.html",
     "imgSrc": "projects/webretro-local/assets/icon204.png",
