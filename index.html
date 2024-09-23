@@ -496,7 +496,7 @@
     async function fetchMovies(pageSet) {
         const promises = [];
         for (let page = (pageSet - 1) * 5 + 1; page <= pageSet * 5; page++) {
-            promises.push(fetch(`${baseUrl}/movie/popular?api_key=${apiKey}&language=en-US&page=${page}&certification_country=US&certification.lte=PG-13`));
+            promises.push(fetch(`${baseUrl}/movie/popular?api_key=${apiKey}&language=en-US&page=${page}&certification_country=US&certification.lte=PG`));
         }
         const responses = await Promise.all(promises);
         const movies = [];
