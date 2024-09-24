@@ -11,7 +11,7 @@
   },
   {
     "link": "projects/8ball",
-    "imgSrc": "projects/8ball/meta/apple-touch-icon.png",
+    "imgSrc": "https://play-lh.googleusercontent.com/bPz1guJ6FHF3oIOEy3KqwpaDDKO-hLRaZoyzmM8bLFLN8fWm6L0_EuUnkwv9iqPo3Ag",
     "title": "8 Ball"
   },
   {
@@ -31,7 +31,7 @@
   },
   {
     "link": "projects/ageofwar",
-    "imgSrc": "projects/ageofwar/meta/apple-touch-icon.png",
+    "imgSrc": "https://ageofwargame.io/data/image/game/age-of-war-512x512.jpeg",
     "title": "Age of War"
   },
   {
@@ -46,7 +46,7 @@
   },
   {
     "link": "projects/axis",
-    "imgSrc": "projects/axis/meta/apple-touch-icon.png",
+    "imgSrc": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2UyaLMrjv3SJ6UZIOa5Gn2oVqfSKWS08HVQ&s",
     "title": "Axis"
   },
   {
