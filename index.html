@@ -402,11 +402,6 @@
         <!-- Search Bar -->
         <div class="search-bar">
             <input type="text" id="searchInput" placeholder="Search for a game, TV show, or movie...">
-            <select id="searchType" aria-label="Search Type" style="margin-left: 10px; padding: 10px; font-size: 1rem;">
-                <option value="games">Games</option>
-                <option value="movies">Movies</option>
-                <option value="tv">TV Shows</option>
-            </select>
         </div>
 
         <!-- Tab Navigation -->
@@ -440,7 +435,7 @@
         <div class="library-section" id="internet-search-section">
             <h3>Search the Internet</h3>
             <div class="iframe-container">
-                <iframe class="frame" src="/search" width="100%" height="600px" style="border: none;"></iframe>
+                <iframe class="frame" src="https://paid.ezmath.site/search" width="100%" height="600px" style="border: none;"></iframe>
             </div>
         </div>
         
@@ -465,268 +460,259 @@
     </footer>
 
     <script>
-        // Function to switch between sections
-        const tabs = document.querySelectorAll('.tab');
-        const sections = document.querySelectorAll('.library-section');
+// Function to switch between sections
+const tabs = document.querySelectorAll('.tab');
+const sections = document.querySelectorAll('.library-section');
+const searchInput = document.getElementById('searchInput'); // Search bar input element
 
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                tabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
+tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
 
-                sections.forEach(section => section.classList.remove('active'));
-                const activeSection = document.getElementById(tab.getAttribute('data-section'));
-                activeSection.classList.add('active');
+        sections.forEach(section => section.classList.remove('active'));
+        const activeSection = document.getElementById(tab.getAttribute('data-section'));
+        activeSection.classList.add('active');
 
-                // Fetch movies or TV shows when respective tab is clicked
-                if (tab.getAttribute('data-section') === 'movies-section') {
-                    fetchMovies();
-                } else if (tab.getAttribute('data-section') === 'tv-section') {
-                    fetchTVShows();
-                }
-            });
-        });
-
-    const apiKey = '9b80b3bf5231a6f349ac797f1a6135e6';
-    const baseUrl = 'https://api.themoviedb.org/3';
-    const imageBaseUrl = 'https://image.tmdb.org/t/p/w500';
-
-    let moviePageSet = 1;  // Tracks the current set of movie pages being loaded (1-5, 6-10, etc.)
-    let tvPageSet = 1;     // Tracks the current set of TV show pages
-
-    const moviesGrid = document.querySelector('#movies-section .movies-tv-grid');
-    const tvGrid = document.querySelector('#tv-section .movies-tv-grid');
-
-    // Function to fetch multiple pages of movies (pages 1-5, 6-10, etc.)
-    async function fetchMovies(pageSet) {
-        const promises = [];
-        for (let page = (pageSet - 1) * 5 + 1; page <= pageSet * 5; page++) {
-            promises.push(fetch(`${baseUrl}/movie/popular?api_key=${apiKey}&language=en-US&page=${page}&certification_country=US&certification.lte=PG`));
+        // Change search bar placeholder based on active tab
+        if (tab.getAttribute('data-section') === 'games-section') {
+            searchInput.placeholder = "Search for a game...";
+        } else if (tab.getAttribute('data-section') === 'movies-section') {
+            searchInput.placeholder = "Search for a movie...";
+        } else if (tab.getAttribute('data-section') === 'tv-section') {
+            searchInput.placeholder = "Search for a TV show...";
         }
-        const responses = await Promise.all(promises);
-        const movies = [];
-        for (let response of responses) {
-            const data = await response.json();
-            movies.push(...data.results);
-        }
-        displayMovies(movies);
-    }
 
-    // Function to fetch multiple pages of TV shows (pages 1-5, 6-10, etc.)
-    async function fetchTVShows(pageSet) {
-        const promises = [];
-        for (let page = (pageSet - 1) * 5 + 1; page <= pageSet * 5; page++) {
-            promises.push(fetch(`${baseUrl}/tv/popular?api_key=${apiKey}&language=en-US&page=${page}`));
-        }
-        const responses = await Promise.all(promises);
-        const tvShows = [];
-        for (let response of responses) {
-            const data = await response.json();
-            tvShows.push(...data.results);
-        }
-        displayTVShows(tvShows);
-    }
-
-    // Function to display movies
-    function displayMovies(movies) {
-        movies.forEach(movie => {
-            const movieItem = document.createElement('div');
-            movieItem.classList.add('item');
-            movieItem.innerHTML = `
-                <img src="${imageBaseUrl}${movie.poster_path}" alt="${movie.title}">
-                <span>${movie.title}</span>
-            `;
-
-            // Add click event to open new tab with movie details
-            movieItem.addEventListener('click', () => {
-                window.open(`/movie?id=${movie.id}`, '_blank');
-            });
-
-            moviesGrid.appendChild(movieItem);
-        });
-    }
-
-    // Function to display TV shows
-    function displayTVShows(tvShows) {
-        tvShows.forEach(show => {
-            const tvItem = document.createElement('div');
-            tvItem.classList.add('item');
-            tvItem.innerHTML = `
-                <img src="${imageBaseUrl}${show.poster_path}" alt="${show.name}">
-                <span>${show.name}</span>
-            `;
-
-            // Add click event to open new tab with TV show details
-            tvItem.addEventListener('click', () => {
-                window.open(`/tv?id=${show.id}`, '_blank');
-            });
-
-            tvGrid.appendChild(tvItem);
-        });
-    }
-
-    // Function to load more movies or TV shows (called on button click or scroll event)
-    function loadMoreMovies() {
-        moviePageSet++;
-        fetchMovies(moviePageSet);
-    }
-
-    function loadMoreTVShows() {
-        tvPageSet++;
-        fetchTVShows(tvPageSet);
-    }
-
-    // Call the first set of movies and TV shows
-    fetchMovies(moviePageSet);
-    fetchTVShows(tvPageSet);
-
-    // Add a "Load More" button
-    const loadMoreMoviesButton = document.createElement('button');
-    loadMoreMoviesButton.innerText = 'Load More Movies';
-    loadMoreMoviesButton.style.margin = '20px auto';
-    loadMoreMoviesButton.style.display = 'block';
-    loadMoreMoviesButton.onclick = loadMoreMovies;
-    moviesGrid.parentElement.appendChild(loadMoreMoviesButton);
-
-    const loadMoreTVButton = document.createElement('button');
-    loadMoreTVButton.innerText = 'Load More TV Shows';
-    loadMoreTVButton.style.margin = '20px auto';
-    loadMoreTVButton.style.display = 'block';
-    loadMoreTVButton.onclick = loadMoreTVShows;
-    tvGrid.parentElement.appendChild(loadMoreTVButton);
-
-    // Optionally: Add infinite scroll logic (detects when the user scrolls to the bottom of the page)
-    window.addEventListener('scroll', () => {
-        if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-            const activeTab = document.querySelector('.tab.active').getAttribute('data-section');
-            if (activeTab === 'movies-section') {
-                loadMoreMovies();
-            } else if (activeTab === 'tv-section') {
-                loadMoreTVShows();
-            }
+        // Fetch movies or TV shows when respective tab is clicked
+        if (tab.getAttribute('data-section') === 'movies-section') {
+            fetchMovies(moviePageSet);
+        } else if (tab.getAttribute('data-section') === 'tv-section') {
+            fetchTVShows(tvPageSet);
         }
     });
+});
 
-        // Assuming 'login' is defined by AuthPro and contains the user's name
-        document.getElementById("ap_welcome").innerHTML = "Welcome, " + login;
-        
-    // Fetch games from config/games.json and display them
-    async function fetchGames() {
-        try {
-            const response = await fetch('https://premium.ezmath.site/config/games.json'); // Fetch the JSON file
-            const games = await response.json(); // Parse the JSON file
+// Real-time search functionality using 'input' event and debounce
+searchInput.addEventListener('input', debounce(handleSearch, 300)); // Debounce to limit excessive API calls
 
-            // Call the function to display the games in the grid
-            displayGames(games);
-        } catch (error) {
-            console.error("Error fetching games:", error);
-        }
+// Debounce function to delay the search execution
+function debounce(func, delay) {
+    let debounceTimer;
+    return function () {
+        const context = this;
+        const args = arguments;
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => func.apply(context, args), delay);
+    };
+}
+
+// Handle search based on active tab
+function handleSearch() {
+    const query = searchInput.value.trim();
+    const activeTab = document.querySelector('.tab.active').getAttribute('data-section');
+
+    if (activeTab === 'games-section') {
+        searchGames(query);
+    } else if (activeTab === 'movies-section') {
+        searchMovies(query);
+    } else if (activeTab === 'tv-section') {
+        searchTVShows(query);
     }
+}
 
-    // Function to display the games in the grid
-    function displayGames(games) {
-        const gamesGrid = document.querySelector('.games-grid');
+// Search games function (example function to filter games based on search)
+function searchGames(query) {
+    const gamesGrid = document.querySelector('.games-grid');
+    gamesGrid.innerHTML = ''; // Clear previous results
 
-        games.forEach(game => {
-            const gameItem = document.createElement('div');
-            gameItem.classList.add('item');
+    fetch('https://premium.ezmath.site/config/games.json')
+        .then(response => response.json())
+        .then(games => {
+            const filteredGames = games.filter(game => game.title.toLowerCase().includes(query.toLowerCase()));
+            displayGames(filteredGames);
+        })
+        .catch(error => console.error('Error searching games:', error));
+}
 
-            gameItem.innerHTML = `
-                <img src="${game.imgSrc}" alt="${game.title}">
-                <span>${game.title}</span>
-            `;
+// Search movies function (TMDB search endpoint)
+async function searchMovies(query) {
+    const response = await fetch(`${baseUrl}/search/movie?api_key=${apiKey}&language=en-US&query=${query}`);
+    const data = await response.json();
+    const movies = data.results;
 
-            // Add click event to open the game in a new tab
-            gameItem.addEventListener('click', () => {
-                window.open(`/${game.link}`, '_blank'); // Replace with actual game details link
-            });
+    moviesGrid.innerHTML = ''; // Clear previous results
+    displayMovies(movies);
+}
 
-            gamesGrid.appendChild(gameItem);
+// Search TV shows function (TMDB search endpoint)
+async function searchTVShows(query) {
+    const response = await fetch(`${baseUrl}/search/tv?api_key=${apiKey}&language=en-US&query=${query}`);
+    const data = await response.json();
+    const tvShows = data.results;
+
+    tvGrid.innerHTML = ''; // Clear previous results
+    displayTVShows(tvShows);
+}
+
+// TMDB API constants
+const apiKey = '9b80b3bf5231a6f349ac797f1a6135e6';
+const baseUrl = 'https://api.themoviedb.org/3';
+const imageBaseUrl = 'https://image.tmdb.org/t/p/w500';
+
+let moviePageSet = 1;  // Tracks the current set of movie pages being loaded (1-5, 6-10, etc.)
+let tvPageSet = 1;     // Tracks the current set of TV show pages
+
+const moviesGrid = document.querySelector('#movies-section .movies-tv-grid');
+const tvGrid = document.querySelector('#tv-section .movies-tv-grid');
+
+// Function to fetch multiple pages of movies (pages 1-5, 6-10, etc.)
+async function fetchMovies(pageSet) {
+    const promises = [];
+    for (let page = (pageSet - 1) * 5 + 1; page <= pageSet * 5; page++) {
+        promises.push(fetch(`${baseUrl}/movie/popular?api_key=${apiKey}&language=en-US&page=${page}&certification_country=US&certification.lte=PG`));
+    }
+    const responses = await Promise.all(promises);
+    const movies = [];
+    for (let response of responses) {
+        const data = await response.json();
+        movies.push(...data.results);
+    }
+    displayMovies(movies);
+}
+
+// Function to fetch multiple pages of TV shows (pages 1-5, 6-10, etc.)
+async function fetchTVShows(pageSet) {
+    const promises = [];
+    for (let page = (pageSet - 1) * 5 + 1; page <= pageSet * 5; page++) {
+        promises.push(fetch(`${baseUrl}/tv/popular?api_key=${apiKey}&language=en-US&page=${page}`));
+    }
+    const responses = await Promise.all(promises);
+    const tvShows = [];
+    for (let response of responses) {
+        const data = await response.json();
+        tvShows.push(...data.results);
+    }
+    displayTVShows(tvShows);
+}
+
+// Function to display movies
+function displayMovies(movies) {
+    movies.forEach(movie => {
+        const movieItem = document.createElement('div');
+        movieItem.classList.add('item');
+        movieItem.innerHTML = `
+            <img src="${imageBaseUrl}${movie.poster_path}" alt="${movie.title}">
+            <span>${movie.title}</span>
+        `;
+
+        // Add click event to open new tab with movie details
+        movieItem.addEventListener('click', () => {
+            window.open(`/movie?id=${movie.id}`, '_blank');
         });
-    }
 
-    // Call the function to fetch and display games when the page loads
-    fetchGames();
-        
-    function openLeaderboard(evt, leaderboardName) {
-        var i, tabcontent, tablinks;
-
-        // Hide all tab contents
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-        }
-
-        // Remove active class from all tablinks
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-
-        // Show the selected leaderboard
-        document.getElementById(leaderboardName).style.display = "block";
-        evt.currentTarget.className += " active";
-    }
-
-    // Show the first leaderboard by default when page loads
-    document.addEventListener("DOMContentLoaded", function() {
-        document.getElementsByClassName("tablinks")[0].click();
-    });
-        
-let leaderboardData = {};
-
-// Fetch the leaderboard data once when the page loads
-fetch('leaderboard.json')
-    .then(response => response.json())
-    .then(data => {
-        leaderboardData = data.leaderboards; // Store the leaderboard data for use in tabs
-        loadLeaderboard('game1', document.querySelector('.tab-button')); // Load the first leaderboard by default
-    })
-    .catch(error => console.error('Error loading leaderboard:', error));
-
-// Function to load the selected leaderboard based on the game type
-function loadLeaderboard(game, tabButton) {
-    const leaderboardContainer = document.getElementById('leaderboard');
-    leaderboardContainer.innerHTML = ''; // Clear existing leaderboard content
-
-    // Remove the 'active' class from all tab buttons
-    const allTabButtons = document.querySelectorAll('.tab-button');
-    allTabButtons.forEach(button => button.classList.remove('active'));
-
-    // Add the 'active' class to the clicked tab button
-    tabButton.classList.add('active');
-
-    const gameLeaderboard = leaderboardData[game];
-
-    // Loop through the JSON data and create leaderboard rows
-    gameLeaderboard.forEach(entry => {
-        const row = document.createElement('div');
-        row.classList.add('leaderboard-row');
-
-        const infoDiv = document.createElement('div');
-        infoDiv.classList.add('leaderboard-info');
-
-        const placeDiv = document.createElement('div');
-        placeDiv.classList.add('leaderboard-place');
-        placeDiv.textContent = entry.place;
-
-        const userDiv = document.createElement('div');
-        userDiv.classList.add('leaderboard-user');
-        userDiv.textContent = entry.username;
-
-        infoDiv.appendChild(placeDiv);
-        infoDiv.appendChild(userDiv);
-
-        const scoreDiv = document.createElement('div');
-        scoreDiv.classList.add('leaderboard-score');
-        scoreDiv.textContent = entry.score;
-
-        row.appendChild(infoDiv);
-        row.appendChild(scoreDiv);
-
-        leaderboardContainer.appendChild(row);
+        moviesGrid.appendChild(movieItem);
     });
 }
+
+// Function to display TV shows
+function displayTVShows(tvShows) {
+    tvShows.forEach(show => {
+        const tvItem = document.createElement('div');
+        tvItem.classList.add('item');
+        tvItem.innerHTML = `
+            <img src="${imageBaseUrl}${show.poster_path}" alt="${show.name}">
+            <span>${show.name}</span>
+        `;
+
+        // Add click event to open new tab with TV show details
+        tvItem.addEventListener('click', () => {
+            window.open(`/tv?id=${show.id}`, '_blank');
+        });
+
+        tvGrid.appendChild(tvItem);
+    });
+}
+
+// Function to load more movies or TV shows (called on button click or scroll event)
+function loadMoreMovies() {
+    moviePageSet++;
+    fetchMovies(moviePageSet);
+}
+
+function loadMoreTVShows() {
+    tvPageSet++;
+    fetchTVShows(tvPageSet);
+}
+
+// Call the first set of movies and TV shows
+fetchMovies(moviePageSet);
+fetchTVShows(tvPageSet);
+
+// Add a "Load More" button for movies
+const loadMoreMoviesButton = document.createElement('button');
+loadMoreMoviesButton.innerText = 'Load More Movies';
+loadMoreMoviesButton.style.margin = '20px auto';
+loadMoreMoviesButton.style.display = 'block';
+loadMoreMoviesButton.onclick = loadMoreMovies;
+moviesGrid.parentElement.appendChild(loadMoreMoviesButton);
+
+// Add a "Load More" button for TV shows
+const loadMoreTVButton = document.createElement('button');
+loadMoreTVButton.innerText = 'Load More TV Shows';
+loadMoreTVButton.style.margin = '20px auto';
+loadMoreTVButton.style.display = 'block';
+loadMoreTVButton.onclick = loadMoreTVShows;
+tvGrid.parentElement.appendChild(loadMoreTVButton);
+
+// Infinite scroll logic (detects when the user scrolls to the bottom of the page)
+window.addEventListener('scroll', () => {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+        const activeTab = document.querySelector('.tab.active').getAttribute('data-section');
+        if (activeTab === 'movies-section') {
+            loadMoreMovies();
+        } else if (activeTab === 'tv-section') {
+            loadMoreTVShows();
+        }
+    }
+});
+
+// Fetch games from config/games.json and display them
+async function fetchGames() {
+    try {
+        const response = await fetch('https://premium.ezmath.site/config/games.json'); // Fetch the JSON file
+        const games = await response.json(); // Parse the JSON file
+
+        // Call the function to display the games in the grid
+        displayGames(games);
+    } catch (error) {
+        console.error("Error fetching games:", error);
+    }
+}
+
+// Function to display the games in the grid
+function displayGames(games) {
+    const gamesGrid = document.querySelector('.games-grid');
+
+    games.forEach(game => {
+        const gameItem = document.createElement('div');
+        gameItem.classList.add('item');
+
+        gameItem.innerHTML = `
+            <img src="${game.imgSrc}" alt="${game.title}">
+            <span>${game.title}</span>
+        `;
+
+        // Add click event to open the game in a new tab
+        gameItem.addEventListener('click', () => {
+            window.open(game.url, '_blank');
+        });
+
+        gamesGrid.appendChild(gameItem);
+    });
+}
+
+// Fetch and display games on page load
+fetchGames();
     </script>
 </body>
 </html>
