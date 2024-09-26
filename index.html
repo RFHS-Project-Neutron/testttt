@@ -325,7 +325,7 @@
     }
 
     async function fetchGames() {
-        const response = await fetch('games.json'); // Adjust this URL as needed
+        const response = await fetch('/config/games.json'); // Adjust this URL as needed
         const gamesData = await response.json();
         const gamesCarousel = document.querySelector('.games-carousel');
 
