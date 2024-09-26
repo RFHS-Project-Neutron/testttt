@@ -693,6 +693,9 @@ async function fetchGames() {
 function displayGames(games) {
     const gamesGrid = document.querySelector('.games-grid');
 
+    // Clear previous games (if any)
+    gamesGrid.innerHTML = '';
+
     games.forEach(game => {
         const gameItem = document.createElement('div');
         gameItem.classList.add('item');
@@ -704,7 +707,7 @@ function displayGames(games) {
 
         // Add click event to open the game in a new tab
         gameItem.addEventListener('click', () => {
-            window.open(game.url, '_blank');
+            window.open(game.link, '_blank'); // Open the game URL in a new tab
         });
 
         gamesGrid.appendChild(gameItem);
