@@ -324,21 +324,27 @@
         });
     }
 
-    async function fetchGames() {
-        const response = await fetch('/config/games.json'); // Adjust this URL as needed
-        const gamesData = await response.json();
-        const gamesCarousel = document.querySelector('.games-carousel');
+async function fetchGames() {
+    const response = await fetch('/config/games.json'); // Adjust this URL as needed
+    const gamesData = await response.json();
+    const gamesCarousel = document.querySelector('.games-carousel');
 
-        gamesData.forEach(game => {
-            const gameItem = document.createElement('div');
-            gameItem.classList.add('game-item');
-            gameItem.innerHTML = `
-                <img src="${game.imgSrc}" alt="${game.title}"> <!-- Ensure imgSrc is in your JSON -->
-                <h3>${game.title}</h3>
-            `;
-            gamesCarousel.appendChild(gameItem);
-        });
-    }
+    // Shuffle the gamesData array
+    const shuffledGames = gamesData.sort(() => 0.5 - Math.random());
+
+    // Select the first 4 games
+    const randomGames = shuffledGames.slice(0, 4);
+
+    randomGames.forEach(game => {
+        const gameItem = document.createElement('div');
+        gameItem.classList.add('game-item');
+        gameItem.innerHTML = `
+            <img src="${game.imgSrc}" alt="${game.title}"> <!-- Ensure imgSrc is in your JSON -->
+            <h3>${game.title}</h3>
+        `;
+        gamesCarousel.appendChild(gameItem);
+    });
+}
 
     // Fetch all data
     fetchMovies();
