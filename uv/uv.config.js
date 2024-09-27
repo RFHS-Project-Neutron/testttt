@@ -2,7 +2,7 @@
 /*global Ultraviolet*/
 self.__uv$config = {
 	prefix: '/uv/service/',
-	bare: 'https://bare-server.akku1139.workers.dev/', // https://infiniteknowledge.online/bare/, 
+	bare: 'https://lavishlylearning.com/bare/', // https://infiniteknowledge.online/bare/, 
 	encodeUrl: Ultraviolet.codec.xor.encode,
 	decodeUrl: Ultraviolet.codec.xor.decode,
 	handler: '/uv/uv.handler.js',
