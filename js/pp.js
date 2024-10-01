@@ -3,7 +3,7 @@ let isIframeDisplayed = false;
 
 // Function to fetch and check user data
 function checkUserData() {
-    fetch('users.json')
+    fetch('./users.json')
         .then(response => response.json())
         .then(users => {
             // Check local storage for username
