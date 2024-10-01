@@ -291,12 +291,12 @@
   },
   {
     "link": "projects/eaglercraft-1.5.2",
-    "imgSrc": "projects/eaglercraft-1.5.2/meta/apple-touch-icon.png",
+    "imgSrc": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8jBmwuWnaEQkYi5UJnlgTLpq6X87X8biMdA&s",
     "title": "Eaglercraft 1.5.2"
   },
   {
     "link": "projects/eaglercraft-1.8.8",
-    "imgSrc": "projects/eaglercraft-1.8.8/meta/apple-touch-icon.png",
+    "imgSrc": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8jBmwuWnaEQkYi5UJnlgTLpq6X87X8biMdA&s",
     "title": "Eaglercraft 1.8.8"
   },
   {
