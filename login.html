@@ -55,7 +55,7 @@
 
         button {
             padding: 10px;
-            background-color: rgba(255, 106, 61, 08);
+            background-color: #ff6a3d;
             color: white;
             border: none;
             border-radius: 5px;
@@ -96,23 +96,36 @@
     </div>
     
     <script>
-        let users = []; // Initialize an empty array for users
-
-        // Fetch user data from users.json
-        fetch('/users.json')
-            .then(response => response.json())
-            .then(data => {
-                users = data; // Assign fetched data to users
-            })
-            .catch(error => {
-                console.error('Error fetching user data:', error);
-            });
+        // Simulated user data with hashed passwords
+        const users = [
+            {
+                "username": "admin",
+                "password": "5f4dcc3b5aa765d61d8327deb882cf99",  // "password"
+                "expiration": "2024-12-31T23:59:59",  // Expiration date
+                "banned": false,                      // Ban status
+                "timeout": "2024-10-01T15:00:00"      // Timeout until this date
+            },
+            {
+                "username": "user1",
+                "password": "098f6bcd4621d373cade4e832627b4f6",  // "test"
+                "expiration": "2024-10-15T23:59:59",
+                "banned": false,
+                "timeout": null
+            },
+            {
+                "username": "user2",
+                "password": "25f9e794323b453885f5181f1b624d0b",  // "test789"
+                "expiration": "2025-01-01T00:00:00",
+                "banned": false,
+                "timeout": "2024-10-01T13:30:00"
+            }
+        ];
 
         // A function to hash the password input
         function hashPassword(password) {
-            return CryptoJS.MD5(password).toString(); // Use MD5 for hashing (not recommended for production)
+            return CryptoJS.MD5(password).toString(); // Use MD5 for hashing
         }
-
+        
         document.getElementById('loginForm').addEventListener('submit', (e) => {
             e.preventDefault();
 
@@ -121,34 +134,39 @@
             const hashedInputPassword = hashPassword(password); // Hash the entered password
             const messageDiv = document.getElementById('message');
 
-            // Find user in the fetched user data
+            // Find user in the simulated user data
             const user = users.find(user => user.username === username);
 
             if (user) {
-                // Check if the user is banned
-                if (user.banned) {
-                    messageDiv.textContent = 'Your account is banned.';
-                    messageDiv.className = 'error';
-                    return;
-                }
-
-                // Check for expiration date
-                const currentDate = new Date();
-                if (new Date(user.expiration) < currentDate) {
-                    messageDiv.textContent = 'Your account has expired.';
-                    messageDiv.className = 'error';
-                    return;
-                }
-
-                // Check for timeout
-                if (user.timeout && new Date(user.timeout) > currentDate) {
-                    messageDiv.textContent = 'Your account is temporarily locked.';
-                    messageDiv.className = 'error';
-                    return;
-                }
-
                 // Check if the hashed password matches
                 if (user.password === hashedInputPassword) {
+                    // Check if user is banned
+                    if (user.banned) {
+                        messageDiv.textContent = 'Your account is banned.';
+                        messageDiv.className = 'error';
+                        return;
+                    }
+
+                    // Check if account is expired
+                    const expirationDate = new Date(user.expiration);
+                    const currentDate = new Date();
+                    if (currentDate > expirationDate) {
+                        messageDiv.textContent = 'Your account has expired.';
+                        messageDiv.className = 'error';
+                        return;
+                    }
+
+                    // Check if account is in timeout
+                    if (user.timeout) {
+                        const timeoutDate = new Date(user.timeout);
+                        if (currentDate < timeoutDate) {
+                            messageDiv.textContent = `Your account is in timeout until ${timeoutDate.toLocaleString()}.`;
+                            messageDiv.className = 'error';
+                            return;
+                        }
+                    }
+
+                    // All checks passed, login is successful
                     messageDiv.textContent = 'Login successful!';
                     messageDiv.className = 'success';
 
