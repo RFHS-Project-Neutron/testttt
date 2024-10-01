@@ -49,7 +49,7 @@ function checkUserData() {
 // Function to display the iframe overlay
 function displayIframe() {
     const iframe = document.createElement('iframe');
-    iframe.src = '/finished-login.html';
+    iframe.src = '/login.html';
     iframe.style.position = 'fixed';
     iframe.style.top = '0';
     iframe.style.left = '0';
