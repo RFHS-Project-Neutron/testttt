@@ -1,0 +1,23 @@
+[
+    {
+        "username": "admin",
+        "password": "5f4dcc3b5aa765d61d8327deb882cf99",
+        "expiration": "2024-12-31T23:59:59",
+        "banned": true,
+        "timeout": null     
+    },
+    {
+        "username": "user1",
+        "password": "d8578edf8458ce06fbc5bb76a58c5ca4",
+        "expiration": "2024-10-15T23:59:59",
+        "banned": false,
+        "timeout": null
+    },
+    {
+        "username": "user2",
+        "password": "8f14e45fceea167a5a36dedd4bea2543",
+        "expiration": "2025-01-01T00:00:00",
+        "banned": false,
+        "timeout": "2024-10-01T13:30:00"
+    }
+]
