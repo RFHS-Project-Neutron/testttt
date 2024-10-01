@@ -395,7 +395,7 @@
             <!-- Buttons for logout and profile editing -->
             <div class="welcome-buttons">
                 <button onclick="editProfile()">Edit Profile</button>
-                <button><a href="https://www.authpro.com/auth/projectneutron/?action=logout">Logout</a></button>
+                <button id="logout">Logout</button>
             </div>
         </div>
 
@@ -716,6 +716,16 @@ function displayGames(games) {
 
 // Fetch and display games on page load
 fetchGames();
+
+        // Add event listener to the logout button
+        document.getElementById('logout').addEventListener('click', () => {
+            // Remove the username from local storage
+            localStorage.removeItem('username');
+
+            // Optional: Show a message or redirect after logout
+            alert('You have been logged out.');
+            // window.location.href = '/login.html'; // Uncomment this line to redirect to login page
+        });
     </script>
 </body>
 </html>
