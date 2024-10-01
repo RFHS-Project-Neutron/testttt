@@ -1,79 +1,33 @@
-// Variable to track if the iframe is displayed
-let isIframeDisplayed = false;
+// Function to check if the username is stored in localStorage
+function checkUsername() {
+    const username = localStorage.getItem('username');
 
-// Function to fetch and check user data
-function checkUserData() {
-    fetch('https://raw.githubusercontent.com/RFHS-Project-Neutron/testttt/refs/heads/main/users.json')
-        .then(response => response.json())
-        .then(users => {
-            // Check local storage for username
-            const storedUsername = localStorage.getItem('username');
+    // If no username is found, create and display the iframe
+    if (!username) {
+        // Create a fullscreen overlay div
+        const overlay = document.createElement('div');
+        overlay.style.position = 'fixed';
+        overlay.style.top = '0';
+        overlay.style.left = '0';
+        overlay.style.width = '100vw';
+        overlay.style.height = '100vh';
+        overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.75)';
+        overlay.style.zIndex = '9999';
 
-            if (storedUsername) {
-                // Find the user based on the stored username
-                const user = users.find(user => user.username === storedUsername);
+        // Create an iframe for the /login page
+        const iframe = document.createElement('iframe');
+        iframe.src = '/login';
+        iframe.style.width = '100%';
+        iframe.style.height = '100%';
+        iframe.style.border = 'none';
 
-                // Get current date
-                const currentDate = new Date();
+        // Append the iframe to the overlay
+        overlay.appendChild(iframe);
 
-                if (user) {
-                    // Check if the user is banned
-                    if (user.banned || new Date(user.expiration) < currentDate || (user.timeout && new Date(user.timeout) > currentDate)) {
-                        if (!isIframeDisplayed) {
-                            displayIframe();
-                        }
-                    } else {
-                        // User is not banned or expired; hide the iframe if it is displayed
-                        if (isIframeDisplayed) {
-                            hideIframe();
-                        }
-                    }
-                } else {
-                    // User not found, so display the iframe
-                    if (!isIframeDisplayed) {
-                        displayIframe();
-                    }
-                }
-            } else {
-                // No username found in local storage, display the iframe
-                if (!isIframeDisplayed) {
-                    displayIframe();
-                }
-            }
-        })
-        .catch(error => {
-            console.error('Error fetching user data:', error);
-        });
-}
-
-// Function to display the iframe overlay
-function displayIframe() {
-    const iframe = document.createElement('iframe');
-    iframe.src = '/login.html';
-    iframe.style.position = 'fixed';
-    iframe.style.top = '0';
-    iframe.style.left = '0';
-    iframe.style.width = '100%';
-    iframe.style.height = '100%';
-    iframe.style.border = 'none';
-    iframe.style.zIndex = '9999'; // Ensure it overlays everything
-    iframe.style.backgroundColor = 'rgba(255, 255, 255, 0.9)'; // Optional: Add a white background for better visibility
-
-    // Append the iframe to the body
-    document.body.appendChild(iframe);
-
-    // Update the iframe displayed state
-    isIframeDisplayed = true;
-}
-
-// Function to hide the iframe overlay
-function hideIframe() {
-    const iframes = document.getElementsByTagName('iframe');
-    for (let iframe of iframes) {
-        document.body.removeChild(iframe);
+        // Append the overlay to the body
+        document.body.appendChild(overlay);
     }
-    isIframeDisplayed = false;
 }
 
-// Check user data every 0.5 seconds
-setInterval(checkUserData, 500);
+// Run the check when the page loads
+window.onload = checkUsername;
