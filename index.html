@@ -480,20 +480,23 @@
         }
 
         // Main function to display welcome message
-        async function displayWelcomeMessage() {
-            const users = await fetchUsers(); // Fetch users data
-            const savedUsername = localStorage.getItem('username'); // Example: 'vulture'
+async function displayWelcomeMessage() {
+    const users = await fetchUsers(); // Fetch users data
 
-            // Update welcome message
-            const username = savedUsername ? savedUsername : 'Guest';
-            const userName = getUserName(users, username);
-            const welcomeMessage = userName ? `Welcome, ${userName}` : 'Welcome, Guest';
+    setInterval(() => {
+        const savedUsername = localStorage.getItem('username'); // Example: 'vulture'
 
-            document.getElementById('welcome').textContent = welcomeMessage;
-        }
+        // Update welcome message
+        const username = savedUsername ? savedUsername : 'Guest';
+        const userName = getUserName(users, username);
+        const welcomeMessage = userName ? `Welcome, ${userName}` : 'Welcome, Guest';
 
-        // Call the function to display the welcome message
-        displayWelcomeMessage();
+        document.getElementById('welcome').textContent = welcomeMessage;
+    }, 500); // Check for username update every 0.5 seconds
+}
+
+// Call the function to display the welcome message
+displayWelcomeMessage();
     </script>
     <script>
 // Function to switch between sections
