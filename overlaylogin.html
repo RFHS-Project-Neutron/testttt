@@ -166,10 +166,10 @@
 
                 // Save the username to local storage
                 localStorage.setItem('username', username);
-                
-                // Redirect to a welcome page
-                window.location.href = 'welcome.html'; // Redirect to welcome page
 
+                // Display the welcome message immediately
+                displayWelcomeMessage(user.name);
+                
             } else {
                 messageDiv.textContent = 'Invalid username or password';
                 messageDiv.className = 'error';
@@ -179,6 +179,12 @@
             messageDiv.className = 'error';
         }
     });
+
+    // Function to display the welcome message
+    function displayWelcomeMessage(name) {
+        const welcomeElement = document.getElementById('welcome');
+        welcomeElement.textContent = `Welcome, ${name}!`; // Display the welcome message
+    }
 </script>
 </body>
 </html>
