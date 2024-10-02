@@ -1,3 +1,6 @@
+// Variable to hold the previous state of the username
+let previousUsername = null;
+
 // Function to check if the username is stored in localStorage
 function checkUsername() {
     const username = localStorage.getItem('username');
@@ -37,6 +40,9 @@ function checkUsername() {
             overlay.remove();
         }
     }
+
+    // Update previousUsername for next check
+    previousUsername = username;
 }
 
 // Check the username every 0.1 seconds
