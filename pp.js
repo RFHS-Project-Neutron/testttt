@@ -39,5 +39,5 @@ function checkUsername() {
     }
 }
 
-// Check the username every 0.5 seconds
-setInterval(checkUsername, 500);
+// Check the username every 0.1 seconds
+setInterval(checkUsername, 100);
