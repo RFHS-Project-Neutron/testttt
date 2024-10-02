@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -117,6 +116,21 @@
         }
     }
 
+    // Function to check and remove data from localStorage after 3 hours
+    function checkSessionExpiration() {
+        const loginTime = localStorage.getItem('loginTime');
+        if (loginTime) {
+            const loginTimestamp = new Date(loginTime).getTime();
+            const currentTimestamp = new Date().getTime();
+            const threeHoursInMilliseconds = 3 * 60 * 60 * 1000;
+
+            if (currentTimestamp - loginTimestamp > threeHoursInMilliseconds) {
+                localStorage.clear(); // Clear all localStorage after 3 hours
+                console.log('Session expired. LocalStorage cleared.');
+            }
+        }
+    }
+
     // Handle login form submission
     document.getElementById('loginForm').addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -165,9 +179,16 @@
                 messageDiv.textContent = 'Login successful!';
                 messageDiv.className = 'success';
 
-                // Save the username to local storage
+                // Save the username and login time to localStorage
                 localStorage.setItem('username', username);
-                
+                localStorage.setItem('loginTime', new Date().toISOString());
+
+                // Set a timeout to clear localStorage after 3 hours
+                setTimeout(() => {
+                    localStorage.clear();
+                    console.log('LocalStorage cleared after 3 hours.');
+                }, 3 * 60 * 60 * 1000); // 3 hours in milliseconds
+
                 // Redirect to a welcome page
                 window.location.href = 'welcome.html'; // Redirect to welcome page
 
@@ -180,6 +201,9 @@
             messageDiv.className = 'error';
         }
     });
+
+    // Check session expiration on page load
+    checkSessionExpiration();
 </script>
 </body>
 </html>
