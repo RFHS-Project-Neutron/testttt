@@ -167,10 +167,8 @@
                 // Save the username to local storage
                 localStorage.setItem('username', username);
                 
-                // Reload the page
-                if (window.top === window) {
-                    // Not in an iframe
-                    location.reload(); 
+                window.top.location.reload();
+                
                 } else {
                     // In an iframe, reload the parent window
                     window.top.location.reload(); 
