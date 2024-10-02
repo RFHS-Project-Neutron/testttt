@@ -27,6 +27,14 @@
         "timeout": null
     },
     {
+        "name": "",
+        "username": "freetrial",
+        "password": "766b70c23f307b1ff461b21365abb9fa",
+        "expiration": "2025-10-06T11:59:59",
+        "banned": false,
+        "timeout": null
+    },
+    {
         "name": "Example",
         "username": "example",
         "password": "8f14e45fceea167a5a36dedd4bea2543",
