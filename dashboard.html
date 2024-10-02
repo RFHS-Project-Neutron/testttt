@@ -389,12 +389,11 @@
     <div class="container">
         <!-- Welcome area for members -->
         <div class="welcome">
-            <h2 id="ap_welcome"></h2>
+            <h2 id="welcome"></h2>
             <p>Example</p>
 
             <!-- Buttons for logout and profile editing -->
             <div class="welcome-buttons">
-                <button onclick="editProfile()">Edit Profile</button>
                 <button id="logout">Logout</button>
             </div>
         </div>
@@ -459,6 +458,43 @@
         <p>&copy; 2024 Project Neutron. All rights reserved.</p>
     </footer>
 
+    <script>
+               // Function to fetch users data from the JSON file
+        async function fetchUsers() {
+            try {
+                const response = await fetch('path/to/your/users.json'); // Update this with your actual JSON file path
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return await response.json();
+            } catch (error) {
+                console.error('Failed to fetch users:', error);
+                return []; // Return an empty array on error
+            }
+        }
+
+        // Function to get user's name based on username
+        function getUserName(users, username) {
+            const user = users.find(user => user.username === username);
+            return user ? user.name : null;
+        }
+
+        // Main function to display welcome message
+        async function displayWelcomeMessage() {
+            const users = await fetchUsers(); // Fetch users data
+            const savedUsername = localStorage.getItem('username'); // Example: 'vulture'
+
+            // Update welcome message
+            const username = savedUsername ? savedUsername : 'Guest';
+            const userName = getUserName(users, username);
+            const welcomeMessage = userName ? `Welcome, ${userName}` : 'Welcome, Guest';
+
+            document.getElementById('welcome').textContent = welcomeMessage;
+        }
+
+        // Call the function to display the welcome message
+        displayWelcomeMessage();
+    </script>
     <script>
 // Function to switch between sections
 const tabs = document.querySelectorAll('.tab');
