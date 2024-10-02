@@ -167,12 +167,9 @@
                 // Save the username to local storage
                 localStorage.setItem('username', username);
                 
-                window.top.location.reload();
-                
-                } else {
-                    // In an iframe, reload the parent window
-                    window.top.location.reload(); 
-                }
+                // Redirect to a welcome page
+                window.location.href = 'welcome.html'; // Redirect to welcome page
+
             } else {
                 messageDiv.textContent = 'Invalid username or password';
                 messageDiv.className = 'error';
