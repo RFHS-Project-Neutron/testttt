@@ -15,7 +15,16 @@
         "password": "5f1937c7933bd4751b206c194ba825b0",
         "expiration": "2024-10-15T23:59:59",
         "banned": false,
-        "timeout": "2024-10-01T13:30:00"
+        "timeout": null
+    },
+    {
+        "name": "Owen",
+        "last": "Koepke",
+        "username": "vulture",
+        "password": "c237591f53e5fa6a353fed6bfd860a57",
+        "expiration": "2024-12-31T23:59:59",
+        "banned": false,
+        "timeout": null
     },
     {
         "name": "Example",
