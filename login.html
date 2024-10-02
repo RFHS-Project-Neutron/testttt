@@ -96,47 +96,41 @@
     </div>
     
     <script>
-        // Simulated user data with hashed passwords
-        const users = [
-            {
-                "username": "admin",
-                "password": "5f4dcc3b5aa765d61d8327deb882cf99",  // "password"
-                "expiration": "2024-12-31T23:59:59",  // Expiration date
-                "banned": false,                      // Ban status
-                "timeout": "2024-10-01T15:00:00"      // Timeout until this date
-            },
-            {
-                "username": "user1",
-                "password": "098f6bcd4621d373cade4e832627b4f6",  // "test"
-                "expiration": "2024-10-15T23:59:59",
-                "banned": false,
-                "timeout": null
-            },
-            {
-                "username": "user2",
-                "password": "25f9e794323b453885f5181f1b624d0b",  // "test789"
-                "expiration": "2025-01-01T00:00:00",
-                "banned": false,
-                "timeout": "2024-10-01T13:30:00"
-            }
-        ];
-
         // A function to hash the password input
         function hashPassword(password) {
             return CryptoJS.MD5(password).toString(); // Use MD5 for hashing
         }
         
-        document.getElementById('loginForm').addEventListener('submit', (e) => {
+        // Fetch user data from users.json
+        async function fetchUsers() {
+            try {
+                const response = await fetch('users.json'); // Adjust the path if necessary
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const users = await response.json(); // Parse JSON response
+                return users;
+            } catch (error) {
+                console.error('Error fetching users:', error);
+                return []; // Return an empty array on error
+            }
+        }
+        
+        // Handle login form submission
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
             e.preventDefault();
-
+        
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
             const hashedInputPassword = hashPassword(password); // Hash the entered password
             const messageDiv = document.getElementById('message');
-
-            // Find user in the simulated user data
+        
+            // Fetch users from users.json
+            const users = await fetchUsers();
+        
+            // Find user in the fetched user data
             const user = users.find(user => user.username === username);
-
+        
             if (user) {
                 // Check if the hashed password matches
                 if (user.password === hashedInputPassword) {
@@ -146,7 +140,7 @@
                         messageDiv.className = 'error';
                         return;
                     }
-
+        
                     // Check if account is expired
                     const expirationDate = new Date(user.expiration);
                     const currentDate = new Date();
@@ -155,7 +149,7 @@
                         messageDiv.className = 'error';
                         return;
                     }
-
+        
                     // Check if account is in timeout
                     if (user.timeout) {
                         const timeoutDate = new Date(user.timeout);
@@ -165,6 +159,20 @@
                             return;
                         }
                     }
+        
+                    // Successful login
+                    messageDiv.textContent = 'Login successful!';
+                    messageDiv.className = 'success';
+                    // Add further logic for successful login here
+                } else {
+                    messageDiv.textContent = 'Incorrect password.';
+                    messageDiv.className = 'error';
+                }
+            } else {
+                messageDiv.textContent = 'User not found.';
+                messageDiv.className = 'error';
+            }
+        });
 
                     // All checks passed, login is successful
                     messageDiv.textContent = 'Login successful!';
