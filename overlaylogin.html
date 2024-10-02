@@ -94,97 +94,95 @@
         </form>
         <div id="message"></div>
     </div>
-    
 <script>
-    // A function to hash the password input
-    function hashPassword(password) {
-        return CryptoJS.MD5(password).toString(); // Use MD5 for hashing
-    }
+// A function to hash the password input
+function hashPassword(password) {
+    return CryptoJS.MD5(password).toString(); // Use MD5 for hashing
+}
 
-    // Fetch user data from users.json
-    async function fetchUsers() {
-        try {
-            const response = await fetch('users.json'); // Ensure this path is correct
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            const users = await response.json(); // Parse JSON response
-            return users;
-        } catch (error) {
-            console.error('Error fetching users:', error);
-            return []; // Return an empty array on error
+// Fetch user data from users.json
+async function fetchUsers() {
+    try {
+        const response = await fetch('users.json'); // Ensure this path is correct
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
         }
+        const users = await response.json(); // Parse JSON response
+        return users;
+    } catch (error) {
+        console.error('Error fetching users:', error);
+        return []; // Return an empty array on error
     }
+}
 
-    // Handle login form submission
-    document.getElementById('loginForm').addEventListener('submit', async (e) => {
-        e.preventDefault();
+// Handle login form submission
+document.getElementById('loginForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-        const hashedInputPassword = hashPassword(password); // Hash the entered password
-        const messageDiv = document.getElementById('message');
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    const hashedInputPassword = hashPassword(password); // Hash the entered password
+    const messageDiv = document.getElementById('message');
+    const welcomeDiv = document.getElementById('welcome'); // Get the welcome message div
 
-        // Fetch users from users.json
-        const users = await fetchUsers();
+    // Fetch users from users.json
+    const users = await fetchUsers();
 
-        // Find user in the fetched user data
-        const user = users.find(user => user.username === username);
+    // Find user in the fetched user data
+    const user = users.find(user => user.username === username);
 
-        if (user) {
-            // Check if the hashed password matches
-            if (user.password === hashedInputPassword) {
-                // Check if user is banned
-                if (user.banned) {
-                    messageDiv.textContent = 'Your account is banned.';
-                    messageDiv.className = 'error';
-                    return;
-                }
-
-                // Check if account is expired
-                const expirationDate = new Date(user.expiration);
-                const currentDate = new Date();
-                if (currentDate > expirationDate) {
-                    messageDiv.textContent = 'Your account has expired.';
-                    messageDiv.className = 'error';
-                    return;
-                }
-
-                // Check if account is in timeout
-                if (user.timeout) {
-                    const timeoutDate = new Date(user.timeout);
-                    if (currentDate < timeoutDate) {
-                        messageDiv.textContent = `Your account is in timeout until ${timeoutDate.toLocaleString()}.`;
-                        messageDiv.className = 'error';
-                        return;
-                    }
-                }
-
-                // All checks passed, login is successful
-                messageDiv.textContent = 'Login successful!';
-                messageDiv.className = 'success';
-
-                // Save the username to local storage
-                localStorage.setItem('username', username);
-
-                // Display the welcome message immediately
-                displayWelcomeMessage(user.name);
-                
-            } else {
-                messageDiv.textContent = 'Invalid username or password';
+    if (user) {
+        // Check if the hashed password matches
+        if (user.password === hashedInputPassword) {
+            // Check if user is banned
+            if (user.banned) {
+                messageDiv.textContent = 'Your account is banned.';
                 messageDiv.className = 'error';
+                welcomeDiv.textContent = 'Welcome, Guest!';
+                return;
             }
+
+            // Check if account is expired
+            const expirationDate = new Date(user.expiration);
+            const currentDate = new Date();
+            if (currentDate > expirationDate) {
+                messageDiv.textContent = 'Your account has expired.';
+                messageDiv.className = 'error';
+                welcomeDiv.textContent = 'Welcome, Guest!';
+                return;
+            }
+
+            // Check if account is in timeout
+            if (user.timeout) {
+                const timeoutDate = new Date(user.timeout);
+                if (currentDate < timeoutDate) {
+                    messageDiv.textContent = `Your account is in timeout until ${timeoutDate.toLocaleString()}.`;
+                    messageDiv.className = 'error';
+                    welcomeDiv.textContent = 'Welcome, Guest!';
+                    return;
+                }
+            }
+
+            // All checks passed, login is successful
+            messageDiv.textContent = 'Login successful!';
+            messageDiv.className = 'success';
+
+            // Save the username to local storage
+            localStorage.setItem('username', username);
+
+            // Display welcome message with the user's name
+            welcomeDiv.textContent = `Welcome, ${user.name}!`; // Use the user's name
         } else {
             messageDiv.textContent = 'Invalid username or password';
             messageDiv.className = 'error';
+            welcomeDiv.textContent = 'Welcome, Guest!';
         }
-    });
-
-    // Function to display the welcome message
-    function displayWelcomeMessage(name) {
-        const welcomeElement = document.getElementById('welcome');
-        welcomeElement.textContent = `Welcome, ${name}!`; // Display the welcome message
+    } else {
+        messageDiv.textContent = 'Invalid username or password';
+        messageDiv.className = 'error';
+        welcomeDiv.textContent = 'Welcome, Guest!';
     }
+});
 </script>
 </body>
 </html>
