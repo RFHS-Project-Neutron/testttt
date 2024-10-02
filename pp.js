@@ -19,7 +19,7 @@ function checkUsername() {
 
             // Create an iframe for the /login page
             const iframe = document.createElement('iframe');
-            iframe.src = '/login';
+            iframe.src = '/overlaylogin';
             iframe.style.width = '100%';
             iframe.style.height = '100%';
             iframe.style.border = 'none';
