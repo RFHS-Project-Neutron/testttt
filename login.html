@@ -100,11 +100,11 @@
         function hashPassword(password) {
             return CryptoJS.MD5(password).toString(); // Use MD5 for hashing
         }
-        
+
         // Fetch user data from users.json
         async function fetchUsers() {
             try {
-                const response = await fetch('users.json'); // Adjust the path if necessary
+                const response = await fetch('users.json'); // Ensure this path is correct
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
@@ -115,22 +115,22 @@
                 return []; // Return an empty array on error
             }
         }
-        
+
         // Handle login form submission
         document.getElementById('loginForm').addEventListener('submit', async (e) => {
             e.preventDefault();
-        
+
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
             const hashedInputPassword = hashPassword(password); // Hash the entered password
             const messageDiv = document.getElementById('message');
-        
+
             // Fetch users from users.json
             const users = await fetchUsers();
-        
+
             // Find user in the fetched user data
             const user = users.find(user => user.username === username);
-        
+
             if (user) {
                 // Check if the hashed password matches
                 if (user.password === hashedInputPassword) {
@@ -140,7 +140,7 @@
                         messageDiv.className = 'error';
                         return;
                     }
-        
+
                     // Check if account is expired
                     const expirationDate = new Date(user.expiration);
                     const currentDate = new Date();
@@ -149,7 +149,7 @@
                         messageDiv.className = 'error';
                         return;
                     }
-        
+
                     // Check if account is in timeout
                     if (user.timeout) {
                         const timeoutDate = new Date(user.timeout);
@@ -159,20 +159,6 @@
                             return;
                         }
                     }
-        
-                    // Successful login
-                    messageDiv.textContent = 'Login successful!';
-                    messageDiv.className = 'success';
-                    // Add further logic for successful login here
-                } else {
-                    messageDiv.textContent = 'Incorrect password.';
-                    messageDiv.className = 'error';
-                }
-            } else {
-                messageDiv.textContent = 'User not found.';
-                messageDiv.className = 'error';
-            }
-        });
 
                     // All checks passed, login is successful
                     messageDiv.textContent = 'Login successful!';
@@ -180,9 +166,6 @@
 
                     // Save the username to local storage
                     localStorage.setItem('username', username);
-
-                    // Redirect to the dashboard
-                    window.location.href = '/dashboard'; // Redirect to the dashboard page
                 } else {
                     messageDiv.textContent = 'Invalid username or password';
                     messageDiv.className = 'error';
