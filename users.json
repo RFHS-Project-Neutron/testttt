@@ -6,7 +6,8 @@
         "password": "0c6d4afa882f2b88efccc99d6acaea41",
         "expiration": "2024-12-31T23:59:59",
         "banned": false,
-        "timeout": null     
+        "timeout": null,
+        "playtime": 0m
     },
     {
         "name": "Preston",
