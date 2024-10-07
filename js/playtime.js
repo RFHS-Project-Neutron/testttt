@@ -43,13 +43,13 @@ function addPlaytime() {
                 const userData = await fetchUserData();
                 const user = userData.find(u => u.username === savedUsername);
                 if (user) {
-                    user.playtime += 5; // Add 5 seconds every 5 seconds
+                    user.playtime += 60; // Add 60 seconds every 60 seconds
                     await updateUserData(userData);
                     
                     const minutes = Math.floor(user.playtime / 60); // Convert seconds to minutes for display
                     console.log(`Playtime updated for ${savedUsername}. New playtime: ${minutes} mins`);
                 }
-            }, 5000); // Run the interval every 5 seconds
+            }, 60000); // Run the interval every 60 seconds
         }
     });
 
