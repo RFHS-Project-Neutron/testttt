@@ -1,10 +1,29 @@
 {
-  "links": [
-    "https://affordableliving.cfd",
-    "https://carsforkids.sbs",
-    "https://cheapest.autos",
-    "https://customizedmugs.shop",
-    "https://gigglefactory.fun",
-    "https://investingforteens.dogecoin"
-  ]
+    "sites": [
+        {
+            "url": "https://affordableliving.cfd",
+            "favicon": "https://affordableliving.cfd/favicon.ico",
+            "title": "Affordable Living"
+        },
+        {
+            "url": "https://carsforkids.sbs",
+            "favicon": "https://carsforkids.sbs/favicon.ico",
+            "title": "Cars for Kids"
+        },
+        {
+            "url": "https://cheapest.autos",
+            "favicon": "https://cheapest.autos/favicon.ico",
+            "title": "Cheapest Autos"
+        },
+        {
+            "url": "https://customizedmugs.shop",
+            "favicon": "https://customizedmugs.shop/favicon.ico",
+            "title": "Customized Mugs"
+        },
+        {
+            "url": "https://gigglefactory.fun",
+            "favicon": "https://gigglefactory.fun/favicon.ico",
+            "title": "Giggle Factory"
+        }
+    ]
 }
