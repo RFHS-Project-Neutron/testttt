@@ -4,7 +4,7 @@
         "last": "Loga",
         "username": "cloga",
         "password": "0c6d4afa882f2b88efccc99d6acaea41",
-        "expiration": "2024-12-31T23:59:59",
+        "expiration": "2025-12-31",
         "banned": false,
         "timeout": null,
         "playtime": 0
@@ -14,7 +14,7 @@
         "last": "Bloodhart",
         "username": "pbloody",
         "password": "5f1937c7933bd4751b206c194ba825b0",
-        "expiration": "2024-10-15T23:59:59",
+        "expiration": "2024-10-15",
         "banned": false,
         "timeout": null
     },
@@ -23,7 +23,7 @@
         "last": "Koepke",
         "username": "vulture",
         "password": "c237591f53e5fa6a353fed6bfd860a57",
-        "expiration": "2024-12-31T23:59:59",
+        "expiration": "2025-12-31",
         "banned": false,
         "timeout": null
     },
@@ -31,7 +31,7 @@
         "name": "Free Trial",
         "username": "freetrial",
         "password": "766b70c23f307b1ff461b21365abb9fa",
-        "expiration": "2025-10-06T11:59:59",
+        "expiration": "2024-10-06",
         "banned": false,
         "timeout": null
     },
