@@ -391,7 +391,7 @@
         <!-- Welcome area for members -->
         <div class="welcome">
             <h2 id="welcome"></h2>
-            <p>Free Trial ends on 10/06, 11:59PM</p>
+            <p id="subscription-message"></p>
 
             <!-- Buttons for logout and profile editing -->
             <div class="welcome-buttons">
@@ -766,6 +766,47 @@ fetchGames();
             alert('You have been logged out.');
             // window.location.href = '/login.html'; // Uncomment this line to redirect to login page
         });
+
+// Function to calculate the remaining days of the subscription
+function calculateDaysRemaining(expirationDate) {
+    const now = new Date();
+    const expiration = new Date(expirationDate);
+    const timeDiff = expiration - now; // Difference in milliseconds
+
+    // Calculate days remaining
+    const daysRemaining = Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); // Convert milliseconds to days
+
+    return daysRemaining;
+}
+
+// Function to display subscription expiration message
+async function displaySubscriptionDays() {
+    const users = await fetchUsers(); // Fetch users data
+    const savedUsername = localStorage.getItem('username'); // Get the logged-in username
+
+    if (savedUsername) {
+        const user = users.find(user => user.username === savedUsername); // Find the logged-in user
+
+        if (user && user.expiration) {
+            const daysRemaining = calculateDaysRemaining(user.expiration);
+
+            // Create a message based on remaining days
+            const subscriptionMessage = daysRemaining > 0 
+                ? `You have ${daysRemaining} day${daysRemaining > 1 ? 's' : ''} remaining on your subscription.`
+                : 'Your subscription has ended.';
+
+            // Update the subscription message dynamically
+            document.getElementById('subscription-message').textContent = subscriptionMessage;
+        } else {
+            document.getElementById('subscription-message').textContent = 'No subscription found.';
+        }
+    } else {
+        document.getElementById('subscription-message').textContent = 'You are not logged in.';
+    }
+}
+
+// Call the function to display subscription expiration days
+displaySubscriptionDays();
     </script>
 </body>
 </html>
