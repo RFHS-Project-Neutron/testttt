@@ -14,7 +14,7 @@
         "last": "Bloodhart",
         "username": "pbloody",
         "password": "5f1937c7933bd4751b206c194ba825b0",
-        "expiration": "2024-10-15",
+        "expiration": "2025-12-31",
         "banned": false,
         "timeout": null
     },
@@ -48,7 +48,7 @@
         "last": "Reidorfer",
         "username": "bjam45",
         "password": "bc740df9e1b16ce922064e2f3865a143",
-        "expiration": "2024-10-08",
+        "expiration": "2024-11-11",
         "banned": false,
         "timeout": null
     },
@@ -57,7 +57,7 @@
         "last": "Amidon",
         "username": "jsmool",
         "password": "4d65afb4195896e2386d6917aab3f2ba",
-        "expiration": "2024-10-08",
+        "expiration": "2024-11-08",
         "banned": false,
         "timeout": null
     },
@@ -66,16 +66,16 @@
         "last": "Everson",
         "username": "yepaak",
         "password": "645260947cad24d6eaa81cec73621ec3",
-        "expiration": "2024-10-08",
+        "expiration": "2024-11-08",
         "banned": false,
         "timeout": null
     },
     {
         "name": "Landon",
         "last": "Linder",
-        "username": "linderlinder",
-        "password": "linderlinder",
-        "expiration": "2024-10-08",
+        "username": "linderlandon",
+        "password": "9e14537d6abfdb0443c96984bde20934",
+        "expiration": "2024-11-08",
         "banned": false,
         "timeout": null
     },
@@ -85,6 +85,33 @@
         "username": "Bigfinger76",
         "password": "7211f3e99da9f26b299321a3febedfbd",
         "expiration": "2025-12-31",
+        "banned": false,
+        "timeout": null
+    }
+    {
+        "name": "Cruz",
+        "last": "Johnson",
+        "username": "fatfart",
+        "password": "f96f688f2345e3d442e75fb611212c0c",
+        "expiration": "2025-12-31",
+        "banned": false,
+        "timeout": null
+    },
+    {
+        "name": "Parker",
+        "last": "Green",
+        "username": "4skin",
+        "password": "404a6e35ea5384667d3527e6bd89f3a8",
+        "expiration": "2025-12-31",
+        "banned": false,
+        "timeout": null
+    },
+        {
+        "name": "Max",
+        "last": "Helminiak",
+        "username": "",
+        "password": "",
+        "expiration": "2024-11-08",
         "banned": false,
         "timeout": null
     }
