@@ -48,55 +48,37 @@
         "last": "Reidorfer",
         "username": "bjam45",
         "password": "bc740df9e1b16ce922064e2f3865a143",
-        "expiration": "2024-10-07",
+        "expiration": "2024-10-08",
         "banned": false,
         "timeout": null
     },
-    {
-        "name": "Beckett",
-        "last": "Reisdorfer",
-        "username": "bjam45",
-        "password": "bc740df9e1b16ce922064e2f3865a143",
-        "expiration": "2024-10-08",
-        "banned": false,
-        "timeout": null
-    },
     {
-        "name": "Beckett",
-        "last": "Reisdorfer",
-        "username": "bjam45",
-        "password": "bc740df9e1b16ce922064e2f3865a143",
-        "expiration": "2024-10-08",
-        "banned": false,
-        "timeout": null
-    },
-    {
-        "name": "Lane",
-        "last": "Amidon",
-        "username": "jsmool",
-        "password": "4d65afb4195896e2386d6917aab3f2ba",
-        "expiration": "2024-10-08",
-        "banned": false,
-        "timeout": null
-    },
-    {
-        "name": "Michael",
-        "last": "Everson",
-        "username": "Yepaak",
-        "password": "645260947cad24d6eaa81cec73621ec3",
-        "expiration": "2024-10-08",
-        "banned": false,
-        "timeout": null
-    },
-    {
-        "name": "Landon",
-        "last": "Linder",
-        "username": "linderlinder",
-        "password": "a8499256420b8384c2dabcb98663b7a2",
-        "expiration": "2024-11-07",
-        "banned": false,
-        "timeout": null
-    }
+        "name": "Lane",
+        "last": "Amidon",
+        "username": "jsmool",
+        "password": "4d65afb4195896e2386d6917aab3f2ba",
+        "expiration": "2024-10-08",
+        "banned": false,
+        "timeout": null
+    },
+    {
+        "name": "Michael",
+        "last": "Everson",
+        "username": "yepaak",
+        "password": "645260947cad24d6eaa81cec73621ec3",
+        "expiration": "2024-10-08",
+        "banned": false,
+        "timeout": null
+    },
+    {
+        "name": "Landon",
+        "last": "Linder",
+        "username": "linderlinder",
+        "password": "linderlinder",
+        "expiration": "2024-10-08",
+        "banned": false,
+        "timeout": null
+    }
 ]
 
 
