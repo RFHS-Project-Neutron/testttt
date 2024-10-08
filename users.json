@@ -6,8 +6,7 @@
         "password": "1028631b5addb1d25620f2d22891d2b8",
         "expiration": "2025-12-31",
         "banned": false,
-        "timeout": null,
-        "playtime": 0
+        "timeout": null
     },
     {
         "name": "Preston",
@@ -50,8 +49,7 @@
         "password": "bc740df9e1b16ce922064e2f3865a143",
         "expiration": "2024-10-08",
         "banned": false,
-        "timeout": null,
-        "playtime": 0
+        "timeout": null
     },
     {
         "name": "Lane",
@@ -60,8 +58,7 @@
         "password": "4d65afb4195896e2386d6917aab3f2ba",
         "expiration": "2024-10-08",
         "banned": false,
-        "timeout": null,
-        "playtime": 0
+        "timeout": null
     },
     {
         "name": "Michael",
@@ -70,8 +67,7 @@
         "password": "645260947cad24d6eaa81cec73621ec3",
         "expiration": "2024-10-08",
         "banned": false,
-        "timeout": null,
-        "playtime": 0
+        "timeout": null
     },
     {
         "name": "Landon",
@@ -80,8 +76,7 @@
         "password": "a8499256420b8384c2dabcb98663b7a2",
         "expiration": "2024-11-07",
         "banned": false,
-        "timeout": null,
-        "playtime": 0
+        "timeout": null
     }
 ]
 
