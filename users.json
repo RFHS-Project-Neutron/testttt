@@ -78,6 +78,15 @@
         "expiration": "2024-10-08",
         "banned": false,
         "timeout": null
+    },
+    {
+        "name": "McKeon",
+        "last": "Grathwol",
+        "username": "Bigfinger76-",
+        "password": "7211f3e99da9f26b299321a3febedfbd",
+        "expiration": "2025-12-31",
+        "banned": false,
+        "timeout": null
     }
 ]
 
