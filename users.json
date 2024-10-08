@@ -3,7 +3,7 @@
         "name": "Christian",
         "last": "Loga",
         "username": "cloga",
-        "password": "0c6d4afa882f2b88efccc99d6acaea41",
+        "password": "1028631b5addb1d25620f2d22891d2b8",
         "expiration": "2025-12-31",
         "banned": false,
         "timeout": null,
@@ -46,8 +46,8 @@
     {
         "name": "Beckett",
         "last": "Reisdorfer",
-        "username": "Bjam45",
-        "password": "Bjam45",
+        "username": "bjam45",
+        "password": "bc740df9e1b16ce922064e2f3865a143",
         "expiration": “2024-10-08”,
         "banned": false,
         "timeout": null,
@@ -56,8 +56,8 @@
     {
         "name": "Lane",
         "last": "Amidon",
-        "username": "Jsmool",
-        "password": "Dog45",
+        "username": "jsmool",
+        "password": "4d65afb4195896e2386d6917aab3f2ba",
         "expiration": “2024-10-08”,
         "banned": false,
         "timeout": null,
@@ -67,7 +67,7 @@
         "name": "Michael",
         "last": "Everson",
         "username": "Yepaak",
-        "password": "4752Michael*",
+        "password": "645260947cad24d6eaa81cec73621ec3",
         "expiration": “2024-10-08”,
         "banned": false,
         "timeout": null,
@@ -76,12 +76,11 @@
     {
         "name": "Landon",
         "last": "Linder",
-        "username": "Linderlinder",
-        "password": "linderlinder",
+        "username": "linderlinder",
+        "password": "a8499256420b8384c2dabcb98663b7a2",
         "expiration": “2024-11-07”,
         "banned": false,
         "timeout": null,
         "playtime": 0,
     }
 ]
-
