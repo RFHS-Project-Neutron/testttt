@@ -61,6 +61,15 @@
         "banned": false,
         "timeout": null
     },
+    {
+        "name": "Beckett",
+        "last": "Reisdorfer",
+        "username": "bjam45",
+        "password": "bc740df9e1b16ce922064e2f3865a143",
+        "expiration": "2024-10-08",
+        "banned": false,
+        "timeout": null
+    },
     {
         "name": "Lane",
         "last": "Amidon",
