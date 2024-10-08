@@ -43,6 +43,15 @@
         "banned": true,
         "timeout": "2024-10-01T13:30:00"
     },
+    {
+        "name": "Beckett",
+        "last": "Reidorfer",
+        "username": "bjam45",
+        "password": "bc740df9e1b16ce922064e2f3865a143",
+        "expiration": "2024-10-07",
+        "banned": false,
+        "timeout": null
+    },
     {
         "name": "Beckett",
         "last": "Reisdorfer",
