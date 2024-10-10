@@ -860,9 +860,9 @@
     "title": "World's Hardest Game 2"
   },
     {
-    "link": "/load?id=you-are-bezos",
-    "imgSrc": "projects/you-are-bezos/img/banner.png",
-    "title": "You Are Jeff Bezos"
+        "link": "/load?id=you-are-bezos",
+        "imgSrc": "projects/you-are-bezos/img/banner.png",
+        "title": "You Are Jeff Bezos"
     }
 ]
 
