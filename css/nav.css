@@ -4,7 +4,7 @@
         .header {
             height: 70px;
             width: 100%;
-            border-bottom: 1px solid #FF7518;
+            border-bottom: 1px solid #FFFFFF;
             top: 0;
             left: 0;
             position: fixed;
@@ -15,7 +15,7 @@
         }
         .header-title {
             font-size: 24px;
-            color: #FF7518;
+            color: #FFFFFF;
             display: flex;
             align-items: center;
         }
@@ -30,7 +30,7 @@
             padding-right: 35px; /* Add padding to prevent text from being cut off */
         }
         .nav a {
-            color: #FF7518;
+            color: #FFFFFF;
             text-decoration: none;
             font-size: 18px;
             display: flex;
@@ -40,5 +40,5 @@
             margin-right: 5px;
         }
         .nav a:hover {
-            color: #F87217;
+            color: #008080;
         }
