@@ -1,205 +1,193 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title></title>
-    <link id="favicon" rel="icon" type="image/png" href="https://example.com/200x200">
+    <title>Project Neutron</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="/js/dynamic.js" defer></script>
     <style>
         body {
+            background-color: #181926;
+            margin: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #1b1b1b;
-            overflow: hidden;
+            font-weight: bold;
+            padding-top: 80px;
         }
         .header {
             height: 70px;
             width: 100%;
-            background-color: transparent;
-            position: absolute;
-            left: 0;
+            border-bottom: 1px solid rgb(138, 173, 244);
             top: 0;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            left: 0;
+            position: fixed;
             display: flex;
-            justify-content: space-between;
-            padding: 0 20px;
             align-items: center;
+            padding: 0 20px;
+            background-color: #181926;
         }
         .header-title {
-            font-size: 32px;
-            color: #007BFF;
-            text-align: left;
-            text-shadow: 0 0 10px rgba(0, 170, 255, 0.4), 0 0 15px rgba(0, 170, 255, 0.2);
-        }
-        .header-title span {
-            font-size: 28px;
-        }
-        .nav-links {
+            font-size: 24px;
+            color: #ffffff;
             display: flex;
-            gap: 15px;
-            margin-right: 40px;
+            align-items: center;
         }
-        .nav-button {
-            background-color: transparent;
-            color: #fff;
-            border: 1px solid #007BFF;
-            border-radius: 10px;
-            padding: 10px 15px;
-            font-size: 18px;
+        .header-title img {
+            height: 40px;
+            margin-right: 5px;
+        }
+        .nav {
+            display: flex;
+            gap: 25px;
+            margin-left: auto;
+            padding-right: 35px;
+        }
+        .nav a {
+            color: #ffffff;
             text-decoration: none;
-            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-            display: inline-block;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
         }
-        .nav-button:hover {
-            box-shadow: 0px 4px 15px rgba(0, 123, 255, 0.5);
-            transform: translateY(-2px);
+        .nav a i {
+            margin-right: 5px;
         }
-        .games-container {
-            width: calc(100vw - 320px);
-            height: calc(100vh - 70px);
-            left: 0;
-            top: 70px;
-            background-color: transparent;
-            position: absolute;
-            padding: 20px;
-            box-sizing: border-box;
+        .nav a:hover {
+            color: rgb(138, 173, 244);
+        }
+        .search-container {
             display: flex;
             justify-content: center;
-            align-items: center;
+            margin-top: 10px;
+            padding: 0 20px;
+        }
+        .search-input {
+            width: 350px;
+            padding: 12px 15px;
+            border: 1px solid rgb(138, 173, 244);
+            border-radius: 30px;
+            background-color: #252836;
+            color: #ffffff;
+            font-size: 16px;
+            transition: border-color 0.3s, background-color 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .search-input::placeholder {
+            color: #cccccc;
+        }
+        .search-input:focus {
+            outline: none;
+            border-color: rgb(138, 173, 244);
+            background-color: #2a2e3a;
+        }
+        .search-button {
+            padding: 12px 20px;
+            margin-left: 10px;
+            border: none;
+            border-radius: 30px;
+            background-color: rgb(138, 173, 244);
+            color: #ffffff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .search-button:hover {
+            background-color: #a0c0ff;
+            transform: translateY(-2px);
+        }
+        .search-button:active {
+            transform: translateY(0);
+        }
+        .games-container {
+            display: flex;
             flex-wrap: wrap;
-            overflow-y: auto;
+            justify-content: center;
+            padding: 20px;
         }
         .game-card {
-            width: 175px;
-            margin: 10px;
-            background-color: black;
-            border-radius: 8px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            display: inline-block;
+            background-color: #252836;
+            border-radius: 10px;
+            margin: 15px;
+            padding: 0px;
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 150px;
+            transition: transform 0.3s;
+            cursor: pointer;
         }
-
         .game-card:hover {
-            box-shadow: 0px 4px 15px rgba(0, 123, 255, 0.5);
+            transform: scale(1.02);
+            box-shadow: 0 4px 20px rgba(138, 173, 244, 0.5);
         }
         .game-card img {
             width: 100%;
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
+            border-radius: 10px 10px 0 0;
         }
         .game-card h3 {
             font-size: 16px;
-            margin: 10px 0;
-            color: white;
-        }
-        .ads-container {
-            width: 320px;
-            height: calc(100vh - 70px);
-            right: 0;
-            top: 70px;
-            background-color: transparent;
-            position: absolute;
-        }
-        .ad-container {
-            width: 300px;
-            height: 510px;
-            left: 50%;
-            top: 50%;
-            background-color: transparent;
-            position: absolute;
-            z-index: 2;
-            transform: translate(-50%, -50%);
-        }
-        .ad {
-            width: 300px;
-            height: 250px;
-            left: 50%;
-            top: 0px;
-            background-color: transparent;
-            position: absolute;
-            z-index: 2;
-            transform: translateX(-50%);
-        }
-        .bottom {
-            top: 260px;
-        }
-        a {
-          color: inherit;
-          text-decoration: none;
-        }
-        @media (max-width: 735px) {
-            .header {
-                height: 60px;
-            }
-            .header-title {
-                font-size: 24px;
-            }
-            .header-title span {
-                font-size: 21px;
-            }
-            .nav-button {
-                padding: 8px 12px;
-                font-size: 16px;
-            }
+            color: #ffffff;
+            margin: 10px 0 10px;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <div class="header-title"><strong>Project Neutron</strong> <span>Lite</span></div>
-        <div class="nav-links">
-            <a href="/" class="nav-button">Home</a>
-            <a href="/projects" class="nav-button">Games</a>
-            <a href="/about" class="nav-button">About</a>
+        <div class="header-title">
+            <img src="/assets/logo.png"> Project Neutron
         </div>
+        <nav class="nav">
+            <a href="/"><i class="fas fa-home"></i> Home</a>
+            <a href="/games"><i class="fas fa-gamepad"></i> Games</a>
+            <a href="/movies"><i class="fas fa-film"></i> Movies</a>
+            <a href="/tv"><i class="fas fa-tv"></i> TV</a>
+            <a href="/profile"><i class="fas fa-user"></i> Profile</a>
+        </nav>
     </div>
-    <div class="games-container" id="games-container"></div>
-    <div class="ads-container">
-        <div class="ad-container">
-            <div class="ad">
-                <script type="text/javascript">
-                    atOptions = {
-                        'key' : 'b10030c396ea36a86891d34aad5b6ea0',
-                        'format' : 'iframe',
-                        'height' : 250,
-                        'width' : 300,
-                        'params' : {}
-                    };
-                </script>
-                <script type="text/javascript" src="//www.topcpmcreativeformat.com/b10030c396ea36a86891d34aad5b6ea0/invoke.js"></script>
-            </div>
-            <div class="ad bottom">
-                <script type="text/javascript">
-                    atOptions = {
-                        'key' : 'b10030c396ea36a86891d34aad5b6ea0',
-                        'format' : 'iframe',
-                        'height' : 250,
-                        'width' : 300,
-                        'params' : {}
-                    };
-                </script>
-                <script type="text/javascript" src="//www.topcpmcreativeformat.com/b10030c396ea36a86891d34aad5b6ea0/invoke.js"></script>
-            </div>
-        </div>
+
+    <div class="search-container">
+        <input type="text" class="search-input" placeholder="Search for a game..." id="search-input">
+        <button class="search-button" id="search-button"><i class="fas fa-search"></i> Search</button>
     </div>
+
+    <div class="games-container" id="games-container">
+    </div>
+
     <script>
-        fetch('/config/games.json')
+        let allGames = [];
+        fetch('https://carsforkids.sbs/config/games.json')
             .then(response => response.json())
-            .then(games => {
-                const container = document.getElementById('games-container');
-                games.forEach(game => {
-                    const gameCard = document.createElement('a');
-                    gameCard.href = game.link;
-                    gameCard.className = 'game-card';
-                    gameCard.innerHTML = `
+            .then(data => {
+                allGames = data;
+                displayGames(allGames);
+            })
+            .catch(error => console.error('Error fetching games:', error));
+
+        function displayGames(games) {
+            const gamesContainer = document.getElementById('games-container');
+            gamesContainer.innerHTML = '';
+            games.forEach(game => {
+                const gameCard = document.createElement('div');
+                gameCard.className = 'game-card';
+                gameCard.innerHTML = `
+                    <a href="${game.link}" style="text-decoration: none; color: inherit;">
                         <img src="${game.imgSrc}">
                         <h3>${game.title}</h3>
-                    `;
-                    container.appendChild(gameCard);
-                });
-            })
-            .catch(error => {
-                console.error('Error fetching games:', error);
+                    </a>
+                `;
+                gamesContainer.appendChild(gameCard);
             });
+        }
+
+        document.getElementById('search-button').addEventListener('click', () => {
+            const searchInput = document.getElementById('search-input').value.toLowerCase();
+            const filteredGames = allGames.filter(game => game.title.toLowerCase().includes(searchInput));
+            displayGames(filteredGames);
+        });
+
+        document.getElementById('search-input').addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                document.getElementById('search-button').click();
+            }
+        });
     </script>
 </body>
 </html>
