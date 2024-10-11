@@ -1,130 +1,118 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Project Neutron Lite</title>
-    <link id="favicon" rel="icon" type="image/png" href="https://example.com/200x200">
-    <script src="/js/dynamic.js" defer></script>
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
+            background-color: #181926;
+            margin: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #1b1b1b;
-            overflow: hidden;
+            font-weight: bold;
+            padding-top: 80px; /* Add padding to avoid overlap with fixed header */
         }
         .header {
             height: 70px;
             width: 100%;
-            background-color: transparent;
-            position: absolute;
-            left: 0;
+            border-bottom: 1px solid rgb(138, 173, 244);
             top: 0;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            left: 0;
+            position: fixed;
             display: flex;
-            justify-content: space-between;
-            padding: 0 20px;
             align-items: center;
+            padding: 0 20px;
+            background-color: #181926;
         }
         .header-title {
-            font-size: 32px;
-            color: #007BFF;
-            text-align: left;
-            text-shadow: 0 0 10px rgba(0, 170, 255, 0.4), 0 0 15px rgba(0, 170, 255, 0.2);
-        }
-        .header-title span {
-            font-size: 28px;
-        }
-        .nav-links {
+            font-size: 24px;
+            color: #ffffff;
             display: flex;
-            gap: 15px;
-            margin-right: 40px;
+            align-items: center;
         }
-        .nav-button {
-            background-color: transparent;
-            color: #fff;
-            border: 1px solid #007BFF;
-            border-radius: 10px;
-            padding: 10px 15px;
-            font-size: 18px;
+        .header-title img {
+            height: 40px;
+            margin-right: 5px;
+        }
+        .nav {
+            display: flex;
+            gap: 25px;
+            margin-left: auto;
+            padding-right: 35px; /* Add padding to prevent text from being cut off */
+        }
+        .nav a {
+            color: #ffffff;
             text-decoration: none;
-            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-            display: inline-block;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
         }
-        .nav-button:hover {
-            box-shadow: 0px 4px 15px rgba(0, 123, 255, 0.5);
-            transform: translateY(-2px);
+        .nav a i {
+            margin-right: 5px;
         }
-        .content {
-            width: 100%;
-            height: calc(100vh - 70px);
-            left: 0;
-            top: 70px;
-            background-color: transparent;
-            position: absolute;
+        .nav a:hover {
+            color: rgb(138, 173, 244);
         }
-        .title {
-            font-size: 64px;
+        .centered-text {
+            color: white;
+            font-size: 64px; /* Adjust font size as needed */
             text-align: center;
-            left: 50%;
-            top: calc(50% - 40px);
-            position: absolute;
-            transform: translate(-50%, -50%);
-            color: #007BFF;
-            text-shadow: 0 0 10px rgba(0, 170, 255, 0.4), 0 0 15px rgba(0, 170, 255, 0.2);
+            margin-top: 60px; /* Increased margin to move text down */
+            width: 50%;
+            margin-left: 50%;
+            transform: translatex(-50%); /* Centering the text */
         }
-        .title span {
-            font-size: 56px;
+        span {
+            color: rgb(138, 173, 244);
         }
-        .description {
-            font-size: 28px;
-            text-align: center;
-            left: 50%;
-            top: calc(50% + 40px);
-            position: absolute;
-            transform: translate(-50%, -50%);
-            color: #007BFF;
-            text-shadow: 0 0 10px rgba(0, 170, 255, 0.4), 0 0 15px rgba(0, 170, 255, 0.2);
+        .button-container {
+            display: flex;
+            justify-content: center; /* Center buttons */
+            margin-top: 20px; /* Space between text and buttons */
+            padding: 0 20px; /* Padding for better layout */
         }
-        @media (max-width: 735px) {
-            .header {
-                height: 60px;
-            }
-            .header-title {
-                font-size: 24px;
-            }
-            .header-title span {
-                font-size: 21px;
-            }
-            .nav-button {
-                padding: 8px 12px;
-                font-size: 16px;
-            }
-            .title {
-                font-size: 36px;
-            }
-            .title span {
-                font-size: 32px;
-            }
-            .description {
-                font-size: 24px;
-            }
-            .content {
-                height: calc(100vh - 60px);
-                top: 60px;
-            }
+        .button {
+            background-color: rgb(138, 173, 244);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px; /* Adjusted padding for a tighter look */
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 0 10px; /* Margin between buttons */
+        }
+        .button:hover {
+            background-color: #0f9cfc; /* Darker shade on hover */
+        }
+        .button i {
+            margin-right: 5px;
+        }
+        .discord {
+            background-color: #5865F2;
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <div class="header-title"><strong>Project Neutron</strong> <span>Lite</span></div>
-        <div class="nav-links">
-            <a href="/" class="nav-button">Home</a>
-            <a href="/projects" class="nav-button">Games</a>
-            <a href="/about" class="nav-button">About</a>
+        <div class="header-title">
+            <img src="/assets/logo.png"> Project Neutron
         </div>
+        <nav class="nav">
+            <a href="#"><i class="fas fa-home"></i> Home</a>
+            <a href="#"><i class="fas fa-gamepad"></i> Games</a>
+            <a href="#"><i class="fas fa-film"></i> Movies</a>
+            <a href="#"><i class="fas fa-tv"></i> TV</a>
+            <a href="#"><i class="fas fa-user"></i> Profile</a>
+        </nav>
     </div>
-    <div class="content">
-        <div class="title"><strong>Project Neutron</strong> <span>Lite</span></div>
-        <div class="description">The faster game site by Neutron Network</div>
+    <div class="centered-text">
+        Your Connection to an <span>Open Internet</span>
+    </div>
+    <div class="button-container">
+        <button class="button"><i class="fas fa-gamepad"></i> Play Games</button>
+        <button class="button discord"><i class="fab fa-discord"></i> Join Discord</button>
     </div>
 </body>
 </html>
