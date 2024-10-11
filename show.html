@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link id="favicon" rel="icon" type="image/png" href="https://example.com/200x200">
+    <script src="/js/dynamic.js" defer></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <iframe id="dynamicIframe" src=""></iframe>
+
+    <script>
+        // Function to get query parameter value by name
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Get the 'id' parameter from the URL
+        const projectId = getQueryParam('id');
+
+        // Set the iframe source dynamically
+        if (projectId) {
+            document.getElementById('dynamicIframe').src = `https://vidsrc.xyz/embed/tv/${projectId}`;
+        } else {
+            // Optionally, handle cases where 'id' is missing
+            document.getElementById('dynamicIframe').src = 'https://vidsrc.xyz/embed/movie/'; // Fallback source
+        }
+    </script>
+
+</body>
+</html>
