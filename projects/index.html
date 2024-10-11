@@ -121,10 +121,17 @@
 
     <script>
         // Add this new JavaScript function to update the game count
-        
         function updateGameCount(count) {
             const gamesCountElement = document.getElementById('games-count');
             gamesCountElement.textContent = `Games: ${count}`;
+        }
+        
+        // Function to subtract one from the game count
+        function decrementGameCount() {
+            const currentCount = parseInt(document.getElementById('games-count').textContent.split(': ')[1]);
+            if (currentCount > 0) {
+                updateGameCount(currentCount - 1);
+            }
         }
         
         // Modify the displayGames function to also update the game count
