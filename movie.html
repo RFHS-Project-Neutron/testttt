@@ -21,3 +21,27 @@
     </style>
 </head>
 <body>
+
+    <iframe id="dynamicIframe" src=""></iframe>
+
+    <script>
+        // Function to get query parameter value by name
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Get the 'id' parameter from the URL
+        const projectId = getQueryParam('id');
+
+        // Set the iframe source dynamically
+        if (projectId) {
+            document.getElementById('dynamicIframe').src = `https://vidsrc.xyz/embed/movie/${projectId}`;
+        } else {
+            // Optionally, handle cases where 'id' is missing
+            document.getElementById('dynamicIframe').src = 'https://vidsrc.xyz/embed/movie/'; // Fallback source
+        }
+    </script>
+
+</body>
+</html>
