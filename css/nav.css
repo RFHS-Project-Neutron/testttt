@@ -30,7 +30,7 @@
             padding-right: 35px; /* Add padding to prevent text from being cut off */
         }
         .nav a {
-            color: #FFFFFF;
+            color: #008080;
             text-decoration: none;
             font-size: 18px;
             display: flex;
@@ -40,5 +40,5 @@
             margin-right: 5px;
         }
         .nav a:hover {
-            color: #008080;
+            color: #FFFFFF;
         }
