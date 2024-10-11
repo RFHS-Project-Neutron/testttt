@@ -4,7 +4,7 @@
         .header {
             height: 70px;
             width: 100%;
-            border-bottom: 1px solid rgb(138, 173, 244);
+            border-bottom: 1px solid #FF7518;
             top: 0;
             left: 0;
             position: fixed;
@@ -15,7 +15,7 @@
         }
         .header-title {
             font-size: 24px;
-            color: #ffffff;
+            color: #FF7518;
             display: flex;
             align-items: center;
         }
