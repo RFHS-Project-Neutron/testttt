@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+   
+   <!-- Home Page -->
+   <url>
+      <loc>https://project-neutron.site/</loc>
+      <lastmod>2024-10-11</lastmod>
+      <priority>1.0</priority>
+   </url>
+
+   <!-- Projects Page (Games) -->
+   <url>
+      <loc>https://project-neutron.site/projects</loc>
+      <lastmod>2024-10-11</lastmod>
+      <priority>0.8</priority>
+   </url>
+
+   <!-- Movies Page -->
+   <url>
+      <loc>https://project-neutron.site/movies</loc>
+      <lastmod>2024-10-11</lastmod>
+      <priority>0.7</priority>
+   </url>
+
+   <!-- TV Page -->
+   <url>
+      <loc>https://project-neutron.site/tv</loc>
+      <lastmod>2024-10-11</lastmod>
+      <priority>0.7</priority>
+   </url>
+
+   <!-- Profile Page -->
+   <url>
+      <loc>https://project-neutron.site/profile</loc>
+      <lastmod>2024-10-11</lastmod>
+      <priority>0.6</priority>
+   </url>
+
+</urlset>
