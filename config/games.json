@@ -5,6 +5,11 @@
     "title": "1"
   },
   {
+    "link": "/load?id=1v1-lol",
+    "imgSrc": "",
+    "title": "1v1.LOL"
+  },
+  {
     "link": "/load?id=2048",
     "imgSrc": "/projects/2048/thumb.png",
     "title": "2048"
@@ -270,6 +275,11 @@
     "title": "Drift Boss"
   },
   {
+    "link": "/load?id=drift-hunters",
+    "imgSrc": "",
+    "title": "Drift Hunters"
+  },
+  {
     "link": "/load?id=ducklife1",
     "imgSrc": "/projects/ducklife1/ducklife.png",
     "title": "Duck Life"
@@ -315,6 +325,11 @@
     "title": "Endless War 3"
   },
   {
+    "link": "/load?id=escaping-the-prison",
+    "imgSrc": "",
+    "title": "Escaping the Prison"
+  },
+  {
     "link": "/load?id=evil-glitch",
     "imgSrc": "/projects/evil-glitch/evil.png",
     "title": "Evil Glitch"
@@ -348,6 +363,11 @@
     "link": "/load?id=flashtetris",
     "imgSrc": "/projects/flashtetris/flashtetris.png",
     "title": "Flash Tetris"
+  },
+  {
+    "link": "/load?id=FNAF",
+    "imgSrc": "",
+    "title": "FNAF"
   },
   {
     "link": "/load?id=footballlegends",
@@ -408,6 +428,11 @@
     "link": "/load?id=hanger2",
     "imgSrc": "/projects/hanger2/meta/apple-touch-icon.png",
     "title": "Hanger 2"
+  },
+  {
+    "link": "/load?id=happy-wheels",
+    "imgSrc": "",
+    "title": "Happy Wheels"
   },
   {
     "link": "/load?id=holeio",
@@ -510,9 +535,19 @@
     "title": "Mini-putt"
   },
   {
+    "link": "/load?id=mini-slot",
+    "imgSrc": "",
+    "title": "Mini Slot"
+  },
+  {
     "link": "/load?id=missiles",
     "imgSrc": "/projects/missiles/miss.png",
     "title": "Missiles"
+  },
+  {
+    "link": "/load?id=monkey-mart",
+    "imgSrc": "",
+    "title": "Monkey Mart"
   },
   {
     "link": "/load?id=motox3m",
@@ -550,14 +585,69 @@
     "title": "Om Nom Bounce"
   },
   {
+    "link": "/load?id=OvO",
+    "imgSrc": "",
+    "title": "OvO"
+  },
+  {
     "link": "/load?id=pandemic2",
     "imgSrc": "/projects/pandemic2/pandemic2.png",
     "title": "Pandemic 2"
   },
   {
+    "link": "/load?id=papas-bakeria",
+    "imgSrc": "",
+    "title": "Papa's Bakeria"
+  },
+  {
+    "link": "/load?id=papas-burgeria",
+    "imgSrc": "",
+    "title": "Papa's Burgeria"
+  },
+  {
+    "link": "/load?id=papas-freezeria",
+    "imgSrc": "",
+    "title": "Papa's Freezeria"
+  },
+  {
+    "link": "/load?id=papas-hot-doggeria",
+    "imgSrc": "",
+    "title": "Papa's Hot Doggeria"
+  },
+  {
+    "link": "/load?id=papas-pancakeria",
+    "imgSrc": "",
+    "title": "Papa's Pancakeria"
+  },
+  {
+    "link": "/load?id=papas-pastaria",
+    "imgSrc": "",
+    "title": "Papa's Pastaria"
+  },
+  {
     "link": "/load?id=papaspizzaria",
     "imgSrc": "/projects/papaspizzaria/papaspizzaria.jpg",
     "title": "Papa's Pizzaria"
+  },
+  {
+    "link": "/load?id=papas-scooperia",
+    "imgSrc": "",
+    "title": "Papa's Scooperia"
+  },
+  {
+    "link": "/load?id=papas-sushiria",
+    "imgSrc": "",
+    "title": "Papa's Sushiria"
+  },
+  {
+    "link": "/load?id=papas-tacomia",
+    "imgSrc": "",
+    "title": "Papa's Tacomia"
+  },
+  {
+    "link": "/load?id=papas-wingeria",
+    "imgSrc": "",
+    "title": "Papa's Wingeria"
   },
   {
     "link": "/load?id=paperio2",
@@ -583,6 +673,11 @@
     "link": "/load?id=plinko",
     "imgSrc": "https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/10/b0/ae/10b0ae96-bfaa-1f2c-1d41-e8a1326d03c7/AppIcon-0-0-1x_U007emarketing-0-0-0-5-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/256x256bb.jpg",
     "title": "Plinko"
+  },
+  {
+    "link": "/load?id=poeltl",
+    "imgSrc": "",
+    "title": "Poeltl"
   },
   {
     "link": "/load?id=polybranch",
@@ -703,6 +798,11 @@
     "link": "/load?id=stickwar",
     "imgSrc": "/projects/stickwar/stickwar.jpg",
     "title": "Stick War"
+  },
+  {
+    "link": "/load?id=Stickman-Hook",
+    "imgSrc": "",
+    "title": "Stickman Hook"
   },
   {
     "link": "/load?id=stormthehouse2",
