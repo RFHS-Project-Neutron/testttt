@@ -13,45 +13,14 @@
             font-weight: bold;
             padding-top: 80px; /* Add padding to avoid overlap with fixed header */
         }
-        .centered-text {
-            color: white;
-            font-size: 64px; /* Adjust font size as needed */
-            text-align: center;
-            margin-top: 60px; /* Increased margin to move text down */
-            width: 50%;
-            margin-left: 50%;
-            transform: translatex(-50%); /* Centering the text */
-        }
-        span {
-            color: rgb(138, 173, 244);
-        }
-        .button-container {
-            display: flex;
-            justify-content: center; /* Center buttons */
-            margin-top: 20px; /* Space between text and buttons */
-            padding: 0 20px; /* Padding for better layout */
-        }
-        .button {
-            background-color: rgb(138, 173, 244);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 10px 15px; /* Adjusted padding for a tighter look */
-            font-size: 18px;
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin: 0 10px; /* Margin between buttons */
-        }
-        .button:hover {
-            background-color: #0f9cfc; /* Darker shade on hover */
-        }
-        .button i {
-            margin-right: 5px;
-        }
-        .discord {
-            background-color: #5865F2;
+        iframe {
+            width: 95vw;
+            height: calc(95vh - 70px);
+            border-radius: 10px;
+            left: 50%;
+            top: calc(50% + 35px);
+            position: absolute;
+            transform: translate(-50%, -50%);
         }
     </style>
 </head>
@@ -68,8 +37,6 @@
             <a href="/profile"><i class="fas fa-user"></i> Profile</a>
         </nav>
     </div>
-    <div class="centered-text">
-        <span>Coming Soon</span>
-    </div>
+    <iframe src="/search"></iframe>
 </body>
 </html>
