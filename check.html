@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+            color: white;
+            margin: 0;
+        }
+        h2 {
+            color: #ff6a3d; /* Accent color for the welcome message */
+        }
+    </style>
+</head>
+<body>
+    <h2 id="welcome"></h2> <!-- Element to display the welcome message -->
+
+    <script>
+        // Retrieve username from local storage and display it
+        const username = localStorage.getItem('username');
+        const welcomeMessage = username ? `Welcome, ${username}` : 'Welcome, Guest';
+        document.getElementById('welcome').textContent = welcomeMessage;
+    </script>
+</body>
+</html>

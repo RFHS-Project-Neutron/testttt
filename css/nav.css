@@ -1,0 +1,49 @@
+        body {
+            background-color: black;
+        }
+        .header {
+            height: 70px;
+            width: 100%;
+            border-bottom: 1px solid #FFFFFF;
+            top: 0;
+            left: 0;
+            position: fixed;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            background-color: black;
+            z-index: 9998;
+        }
+        .header-title {
+            font-size: 24px;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            z-index: 9999;
+        }
+        .header-title img {
+            height: 40px;
+            margin-right: 5px;
+            z-index: 9999;
+        }
+        .nav {
+            display: flex;
+            gap: 25px;
+            margin-left: auto;
+            padding-right: 35px; /* Add padding to prevent text from being cut off */
+            z-index: 9999;
+        }
+        .nav a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            z-index: 9999;
+        }
+        .nav a i {
+            margin-right: 5px;
+        }
+        .nav a:hover {
+            color: #008080;
+        }
