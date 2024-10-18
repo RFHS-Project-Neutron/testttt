@@ -65,6 +65,11 @@
     "title": "Bacon May Die"
   },
   {
+    "link": "/load?id=baldis-basics",
+    "imgSrc": "",
+    "title": "Baldis Basics"
+  },
+  {
     "link": "/load?id=ballblast",
     "imgSrc": "https://play-lh.googleusercontent.com/p0_Vxw_LM74HDO43ZFC1X_IoUpBIJmBUIxSnImQxwlNBoJe4gGASpMW4cEkjmOokNOw",
     "title": "Ball Blast"
@@ -88,6 +93,11 @@
     "link": "/load?id=bigredbutton",
     "imgSrc": "/projects/bigredbutton/bigredbutton.png",
     "title": "Big Red Button"
+  },
+  {
+    "link": "/load?id=bit-planes",
+    "imgSrc": "",
+    "title": "Bit Planes"
   },
   {
     "link": "/load?id=btts",
@@ -720,6 +730,11 @@
     "title": "Retro Bowl"
   },
   {
+    "link": "/load?id=riddle-school",
+    "imgSrc": "",
+    "title": "Riddle School"
+  },
+  {
     "link": "/load?id=rolly-vortex",
     "imgSrc": "/projects/rolly-vortex/icon-256.png",
     "title": "Rolly Vortex"
@@ -785,6 +800,11 @@
     "title": "Soundboard"
   },
   {
+    "link": "/load?id=space-of-war",
+    "imgSrc": "/projects/soundboard/img/mlg-favicon.png",
+    "title": "Space of War"
+  },
+  {
     "link": "/load?id=stack",
     "imgSrc": "/projects/stack/stack.png",
     "title": "Stack"
@@ -848,6 +868,11 @@
     "link": "/load?id=temple-run-2",
     "imgSrc": "/projects/temple-run-2/img/og-icon.png",
     "title": "Temple Run 2"
+  },
+  {
+    "link": "/load?id=territorial-io",
+    "imgSrc": "",
+    "title": "Territorial.io"
   },
   {
     "link": "/load?id=thebattle",
@@ -968,6 +993,16 @@
     "link": "/load?id=worlds-hardest-game-2",
     "imgSrc": "/projects/worlds-hardest-game-2/the-worlds-hardest-game-2.jpg",
     "title": "World's Hardest Game 2"
+  },
+  {
+    "link": "/load?id=yeezle-unlimited",
+    "imgSrc": "",
+    "title": "Yeezle Unlimited"
+  },
+  {
+    "link": "/load?id=yohoho-io",
+    "imgSrc": "",
+    "title": "YoHoHo.io"
   },
   {
     "link": "/load?id=you-are-bezos",
