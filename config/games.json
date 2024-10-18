@@ -80,6 +80,11 @@
     "title": "Basket Bros"
   },
   {
+    "link": "/load?id=basket-random",
+    "imgSrc": "",
+    "title": "Basket Random"
+  },
+  {
     "link": "/load?id=basketball-stars",
     "imgSrc": "/projects/basketball-stars/assets/images/basketball-stars.png",
     "title": "Basketball Stars"
@@ -715,6 +720,11 @@
     "title": "Particle Clicker"
   },
   {
+    "link": "/load?id=penalty-kick/penalty-kick-main",
+    "imgSrc": "",
+    "title": "Penalty Kick"
+  },
+  {
     "link": "/load?id=ping-pong",
     "imgSrc": "",
     "title": "Ping Pong"
@@ -783,6 +793,16 @@
     "link": "/load?id=rooftop-snipers",
     "imgSrc": "/projects/rooftop-snipers/img/preview.png",
     "title": "Rooftop Snipers"
+  },
+  {
+    "link": "/load?id=rooftop-snipers-2",
+    "imgSrc": "",
+    "title": "Rooftop Snipers 2"
+  },
+  {
+    "link": "/load?id=roulette",
+    "imgSrc": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSidP2exgF48d5Js6U3HPXZRrqQH-_mwfCKWw&s",
+    "title": "Roulette"
   },
   {
     "link": "/load?id=run-2",
