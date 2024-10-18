@@ -95,14 +95,19 @@
     "title": "Big Red Button"
   },
   {
-    "link": "/load?id=bit-planes",
-    "imgSrc": "",
-    "title": "Bit Planes"
-  },
-  {
     "link": "/load?id=btts",
     "imgSrc": "/projects/btts/images.png",
     "title": "Big Tower Tiny Square"
+  },
+  {
+    "link": "/load?id=bitlife",
+    "imgSrc": "",
+    "title": "BitLife"
+  },
+  {
+    "link": "/load?id=bit-planes",
+    "imgSrc": "",
+    "title": "Bit Planes"
   },
   {
     "link": "/load?id=blackknight",
@@ -128,6 +133,11 @@
     "link": "/load?id=bloxors",
     "imgSrc": "/projects/bloxors/block.png",
     "title": "Bloxors"
+  },
+  {
+    "link": "/load?id=bob-the-robber",
+    "imgSrc": "",
+    "title": "Bob the Robber"
   },
   {
     "link": "/load?id=boxhead2play",
@@ -192,7 +202,7 @@
   {
     "link": "/load?id=circlo",
     "imgSrc": "/projects/circlo/img/download.png",
-    "title": "circlO"
+    "title": "CirclO"
   },
   {
     "link": "/load?id=connect3",
@@ -258,6 +268,11 @@
     "link": "/load?id=defend-the-tank",
     "imgSrc": "/projects/defend-the-tank/images/splash.jpg",
     "title": "Defend the Tank"
+  },
+  {
+    "link": "/load?id=dig-to-china",
+    "imgSrc": "",
+    "title": "Dig to China"
   },
   {
     "link": "/load?id=doge2048",
@@ -495,6 +510,11 @@
     "title": "Impossible Quiz"
   },
   {
+    "link": "/load?id=impossible-quiz-2",
+    "imgSrc": "",
+    "title": "Impossible Quiz 2"
+  },
+  {
     "link": "/load?id=interactivebuddy",
     "imgSrc": "/projects/interactivebuddy/interactivebuddy.jpg",
     "title": "Interactive Buddy"
@@ -675,9 +695,29 @@
     "title": "Papery Planes"
   },
   {
+    "link": "/load?id=parking1",
+    "imgSrc": "",
+    "title": "Parking 1"
+  },
+  {
+    "link": "/load?id=parking2",
+    "imgSrc": "",
+    "title": "Parking 2"
+  },
+  {
+    "link": "/load?id=parking3",
+    "imgSrc": "",
+    "title": "Parking 3"
+  },
+  {
     "link": "/load?id=particle-clicker",
     "imgSrc": "/projects/particle-clicker/assets/mobile/original.png",
     "title": "Particle Clicker"
+  },
+  {
+    "link": "/load?id=ping-pong",
+    "imgSrc": "",
+    "title": "Ping Pong"
   },
   {
     "link": "/load?id=pixelgunsurvival",
@@ -745,6 +785,11 @@
     "title": "Rooftop Snipers"
   },
   {
+    "link": "/load?id=run-2",
+    "imgSrc": "",
+    "title": "Run 2"
+  },
+  {
     "link": "/load?id=sand-game",
     "imgSrc": "/projects/sand-game/sand.png",
     "title": "Sand Game"
@@ -755,14 +800,49 @@
     "title": "Slope"
   },
   {
+    "link": "/load?id=slot-machine",
+    "imgSrc": "",
+    "title": "Slot Machine"
+  },
+  {
+    "link": "/load?id=slow-roads",
+    "imgSrc": "",
+    "title": "SlowRoads.io"
+  },
+  {
+    "link": "/load?id=snow-rider-3d",
+    "imgSrc": "",
+    "title": "Snow Rider 3D"
+  },
+  {
     "link": "/load?id=soccer-random",
     "imgSrc": "https://play-lh.googleusercontent.com/G1PIlb6HWKSaDre0XpUcmKGps9T4iamsSlwrogB3EJzYv4bz0M2am4D17MtGzndaOOU",
     "title": "Soccer Random"
   },
   {
+    "link": "/load?id=sugar-sugar",
+    "imgSrc": "",
+    "title": "Sugar Sugar"
+  },
+  {
+    "link": "/load?id=sugar-sugar-2",
+    "imgSrc": "",
+    "title": "Sugar Sugar 2"
+  },
+  {
+    "link": "/load?id=super-mario-63",
+    "imgSrc": "",
+    "title": "Super Mario 63"
+  },
+  {
     "link": "/load?id=sm64",
     "imgSrc": "/projects/sm64/logo.png",
     "title": "Super Mario 64"
+  },
+  {
+    "link": "/load?id=supercold",
+    "imgSrc": "",
+    "title": "SUPERCOLD"
   },
   {
     "link": "/load?id=smashkarts",
@@ -888,6 +968,11 @@
     "link": "/load?id=thefinalearth2",
     "imgSrc": "https://www.mathnook.com/img/addthis-fun-games/the-final-earth-2-200x200.png",
     "title": "The Final Earth 2"
+  },
+  {
+    "link": "/load?id=the-forest-temple",
+    "imgSrc": "",
+    "title": "The Forest Temple"
   },
   {
     "link": "/load?id=theheist",
